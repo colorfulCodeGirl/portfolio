@@ -63,8 +63,8 @@
 }
 </style>
 <script>
-import NavItem from "@/components/NavItem.vue";
-import Logo from "@/components/Logo.vue";
+import NavItem from "@/components/Navigation/NavItem.vue";
+import Logo from "@/components/UI/Logo.vue";
 
 export default {
   name: "Navigation",
