@@ -1,8 +1,6 @@
 <template>
   <li class="item" @click="$emit('changeTab', item.index)">
-    <a class="itemLink" :class="{ activeLink: active }" href="#">
-      {{ item.name }}
-    </a>
+    <a class="itemLink" :class="{ activeLink: active }" href="#">{{ item.name }}</a>
     <hr class="line" :class="{ activeLine: active }" />
   </li>
 </template>
@@ -12,6 +10,7 @@
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  padding-top: 0.9rem;
 }
 
 .itemLink {
@@ -19,8 +18,14 @@
   color: #ffffff;
   text-transform: uppercase;
   font-weight: 300;
-  font-size: 1.3rem;
+  font-size: 1rem;
   letter-spacing: 0.05rem;
+}
+
+@media (min-width: 900px) {
+  .itemLink {
+    font-size: 1.3rem;
+  }
 }
 
 .activeLink {
