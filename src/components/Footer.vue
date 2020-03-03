@@ -30,7 +30,7 @@
 .navigation {
   display: flex;
   padding: 1rem 0;
-  width: 80%;
+  width: 90%;
   justify-content: space-between;
 }
 .navLink {
@@ -44,7 +44,7 @@
 }
 .contactLinks {
   padding: 1rem 0;
-  width: 8%;
+  width: 25%;
   display: flex;
   justify-content: space-between;
 }
@@ -61,6 +61,9 @@
   }
   .navLink {
     font-size: 1.2rem;
+  }
+  .contactLinks {
+    width: 8%;
   }
 }
 </style>
