@@ -10,8 +10,16 @@
     </div>
     <hr class="line" />
     <div class="contactLinks">
-      <img class="contactLink" src="../assets/contact/github.svg" alt="github" />
-      <img class="contactLink" src="../assets/contact/linkedin.svg" alt="linkedin" />
+      <img
+        class="contactLink"
+        src="../assets/contact/github.svg"
+        alt="github"
+      />
+      <img
+        class="contactLink"
+        src="../assets/contact/linkedin.svg"
+        alt="linkedin"
+      />
     </div>
   </footer>
 </template>
