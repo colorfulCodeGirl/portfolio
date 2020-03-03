@@ -65,7 +65,7 @@
     margin: 0 auto;
   }
   .navigation {
-    width: 30%;
+    width: 35%;
   }
   .navLink {
     font-size: 1.2rem;

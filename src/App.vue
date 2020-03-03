@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <Navigation />
-    <main></main>
+    <Projects />
     <Footer />
   </div>
 </template>
@@ -23,12 +23,14 @@
 <script>
 import Navigation from "@/components/Navigation/Navigation.vue";
 import Footer from "@/components/Footer.vue";
+import Projects from "@/views/Projects.vue";
 
 export default {
   name: "App",
   components: {
     Navigation,
-    Footer
+    Footer,
+    Projects
   }
 };
 </script>
