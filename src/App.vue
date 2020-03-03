@@ -7,7 +7,7 @@
 </template>
 
 <style>
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,600,700&display=swap");
 
 .app {
   background-color: #141618;
