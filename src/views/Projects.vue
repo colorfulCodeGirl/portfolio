@@ -2,22 +2,32 @@
   <main class="content">
     <p class="decorText">Projects</p>
     <iframe class="iframe" :src="projects[activeId].web"></iframe>
-    <Project
-      v-for="(project, index) in projects"
-      :isActive="index === activeId"
-      class="poject"
-      :project="project"
-      :key="project.name"
-    />
+    <div class="projectsContainer">
+      <vue-simple-scrollbar :scrollbarColor="scrollBarColor">
+        <Project
+          v-for="(project, index) in projects"
+          :isActive="index === activeId"
+          :project="project"
+          :key="project.name"
+        />
+      </vue-simple-scrollbar>
+    </div>
   </main>
 </template>
 <style scoped>
+@import "~vue-simple-scrollbar/dist/vue-simple-scrollbar.css";
+
 .content {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 15% repeat(5, 1fr);
   grid-template-rows: auto;
+}
+.projectsContainer {
+  grid-column: 5 / 7;
+  height: 80vh;
+  width: 100%;
 }
 .decorText {
   grid-column: 1 / 2;
@@ -38,20 +48,18 @@
   height: 60vh;
   width: 100%;
 }
-.project {
-  grid-column: 5 / 7;
-  grid-row: span 1;
-}
 </style>
 <script>
+import VueSimpleScrollbar from "vue-simple-scrollbar";
 import Project from "@/components/Project.vue";
 
 export default {
   name: "Projects",
-  components: { Project },
+  components: { VueSimpleScrollbar, Project },
   data: function() {
     return {
       activeId: 0,
+      scrollBarColor: "rgba(255, 213, 0, 0.75)",
       projects: [
         {
           name: "Art gallery",

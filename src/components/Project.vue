@@ -2,7 +2,12 @@
   <div class="project" :class="{ active: isActive }">
     <div class="heading">
       <h2 class="name">{{ project.name }}</h2>
-      <img v-for="techSrc in techSrces" :src="techSrc" :key="techSrc" class="technologie" />
+      <img
+        v-for="techSrc in techSrces"
+        :src="techSrc"
+        :key="techSrc"
+        class="technologie"
+      />
     </div>
     <p class="description">{{ project.description }}</p>
     <div class="links">
@@ -15,6 +20,7 @@
 <style scoped>
 .project {
   margin-left: 2rem;
+  margin-right: 1rem;
 }
 .heading {
   display: flex;
