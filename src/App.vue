@@ -17,6 +17,7 @@
 
 .app > * {
   font-family: inherit;
+  color: #ffffff;
 }
 </style>
 
