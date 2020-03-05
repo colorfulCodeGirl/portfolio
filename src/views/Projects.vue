@@ -59,7 +59,7 @@ export default {
   data: function() {
     return {
       activeId: 0,
-      scrollBarColor: "rgba(255, 213, 0, 0.75)",
+      scrollBarColor: "rgba(255, 255, 255, 0.5)",
       projects: [
         {
           name: "Art gallery",
