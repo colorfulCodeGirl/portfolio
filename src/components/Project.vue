@@ -3,7 +3,11 @@
     <arrow v-if="isActive" class="arrow" />
     <div class="content" :class="{ active: isActive }">
       <div class="heading">
-        <h2 class="name">{{ project.name }}</h2>
+        <h2 class="name">
+          <a href="#" @click="emitEvent" class="headingLink">{{
+            project.name
+          }}</a>
+        </h2>
         <img
           v-for="techSrc in techSrces"
           :src="techSrc"
@@ -37,16 +41,26 @@ export default {
       );
       return srces;
     }
+  },
+  methods: {
+    emitEvent: function() {
+      this.$emit("changeProject");
+    }
   }
 };
 </script>
 <style scoped>
 .project {
-  margin-left: 2rem;
-  margin-right: 1rem;
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem 0.5rem 1.5rem;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+.project.active {
+  position: sticky;
+  background-color: #141618;
+  top: 0;
 }
 .arrow {
   height: 10rem;
@@ -60,6 +74,10 @@ export default {
 }
 .heading {
   display: flex;
+}
+.headingLink {
+  text-decoration: none;
+  color: #ffffff;
 }
 .name {
   margin: 0;
