@@ -10,8 +10,16 @@
     </div>
     <hr class="line" />
     <div class="contactLinks">
-      <img class="contactLink" src="../assets/contact/github.svg" alt="github" />
-      <img class="contactLink" src="../assets/contact/linkedin.svg" alt="linkedin" />
+      <img
+        class="contactLink"
+        src="../assets/contact/github.svg"
+        alt="github"
+      />
+      <img
+        class="contactLink"
+        src="../assets/contact/linkedin.svg"
+        alt="linkedin"
+      />
     </div>
   </footer>
 </template>
@@ -41,6 +49,14 @@
 }
 .line {
   width: 100%;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(112, 112, 112, 0),
+    rgba(112, 112, 112, 0.75),
+    rgba(112, 112, 112, 0)
+  );
 }
 .contactLinks {
   padding: 1rem 0;
@@ -57,7 +73,7 @@
     margin: 0 auto;
   }
   .navigation {
-    width: 30%;
+    width: 35%;
   }
   .navLink {
     font-size: 1.2rem;

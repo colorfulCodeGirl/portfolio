@@ -19,6 +19,7 @@
   flex-direction: column;
   padding: 0.8rem;
   align-items: center;
+  padding-bottom: 3rem;
 }
 .logo-text {
   flex-basis: 80%;

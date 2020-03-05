@@ -1,13 +1,13 @@
 <template>
   <div class="app">
     <Navigation />
-    <main></main>
+    <Projects />
     <Footer />
   </div>
 </template>
 
 <style>
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,600,700&display=swap");
 
 .app {
   background-color: #141618;
@@ -17,18 +17,21 @@
 
 .app > * {
   font-family: inherit;
+  color: #ffffff;
 }
 </style>
 
 <script>
 import Navigation from "@/components/Navigation/Navigation.vue";
 import Footer from "@/components/Footer.vue";
+import Projects from "@/views/Projects.vue";
 
 export default {
   name: "App",
   components: {
     Navigation,
-    Footer
+    Footer,
+    Projects
   }
 };
 </script>
