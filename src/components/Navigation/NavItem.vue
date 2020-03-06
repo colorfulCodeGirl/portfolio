@@ -1,8 +1,8 @@
 <template>
-  <li class="item" @click="$emit('changeTab', item.index)">
-    <a class="itemLink" :class="{ activeLink: active }" href="#">{{
+  <li class="item">
+    <router-link class="itemLink" :class="{ activeLink: active }" :to="rout">{{
       item.name
-    }}</a>
+    }}</router-link>
     <hr class="line" :class="{ activeLine: active }" />
   </li>
 </template>
@@ -66,6 +66,11 @@ export default {
   props: {
     item: Object,
     active: Boolean
+  },
+  computed: {
+    rout: function() {
+      return `/${this.item.name.toLowerCase()}`;
+    }
   }
 };
 </script>
