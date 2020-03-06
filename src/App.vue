@@ -15,11 +15,13 @@
   background-color: #141618;
   font-family: "Open Sans", sans-serif;
   height: 100vh;
+  box-sizing: border-box;
 }
 
 .app > * {
   font-family: inherit;
   color: #ffffff;
+  box-sizing: border-box;
 }
 </style>
 

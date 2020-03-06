@@ -9,46 +9,12 @@
           :isActive="index === activeId"
           :project="project"
           :key="project.name"
+          @changeProject="changeProject(index)"
         />
       </vue-simple-scrollbar>
     </div>
   </main>
 </template>
-<style scoped>
-@import "~vue-simple-scrollbar/dist/vue-simple-scrollbar.css";
-
-.content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 15% repeat(5, 1fr);
-  grid-template-rows: auto;
-}
-.projectsContainer {
-  grid-column: 5 / 7;
-  height: 80vh;
-  width: 100%;
-}
-.decorText {
-  grid-column: 1 / 2;
-  grid-row: 1 / 4;
-  text-transform: uppercase;
-  font-size: 3rem;
-  letter-spacing: 0.5rem;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  padding: 0;
-  margin: 0;
-  justify-self: center;
-}
-.iframe {
-  grid-column: 2 / 5;
-  grid-row: 1 / 4;
-  border: 1px solid #ffffff;
-  height: 60vh;
-  width: 100%;
-}
-</style>
 <script>
 import VueSimpleScrollbar from "vue-simple-scrollbar";
 import Project from "@/components/Project.vue";
@@ -90,7 +56,7 @@ export default {
           technologies: ["React", "CSS3"],
           description:
             "An advanced form made for practising form validation in React.",
-          web: "https://vanilna.github.io/react-form/",
+          web: "https://vanilna.github.io/react-form/public/index.html",
           code: "https://github.com/Vanilna/react-form"
         },
         {
@@ -129,8 +95,8 @@ export default {
           technologies: ["Bootstrap", "HTML5"],
           description:
             "Copied blog from the original for learning reasons (learning Bootstrap).",
-          web: "https://vanilna.github.io/balls-and-desk/",
-          code: "https://github.com/Vanilna/balls-and-desk"
+          web: "https://vanilna.github.io/Kate-blog/",
+          code: "https://github.com/Vanilna/Kate-blog"
         },
         {
           name: "Captcha",
@@ -141,6 +107,46 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    changeProject: function(id) {
+      this.activeId = id;
+    }
   }
 };
 </script>
+<style scoped>
+@import "~vue-simple-scrollbar/dist/vue-simple-scrollbar.css";
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 15% repeat(5, 1fr);
+  grid-template-rows: auto;
+}
+.projectsContainer {
+  grid-column: 5 / 7;
+  height: 80vh;
+  width: 100%;
+}
+.decorText {
+  grid-column: 1 / 2;
+  grid-row: 1 / 4;
+  text-transform: uppercase;
+  font-size: 3rem;
+  letter-spacing: 0.5rem;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  padding: 0;
+  margin: 0;
+  justify-self: center;
+}
+.iframe {
+  grid-column: 2 / 5;
+  grid-row: 1 / 4;
+  border: 1px solid #ffffff;
+  height: 60vh;
+  width: 100%;
+}
+</style>
