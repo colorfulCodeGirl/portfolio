@@ -95,8 +95,8 @@ export default {
           technologies: ["Bootstrap", "HTML5"],
           description:
             "Copied blog from the original for learning reasons (learning Bootstrap).",
-          web: "https://vanilna.github.io/balls-and-desk/",
-          code: "https://github.com/Vanilna/balls-and-desk"
+          web: "https://vanilna.github.io/Kate-blog/",
+          code: "https://github.com/Vanilna/Kate-blog"
         },
         {
           name: "Captcha",

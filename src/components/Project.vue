@@ -57,11 +57,6 @@ export default {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.project.active {
-  position: sticky;
-  background-color: #141618;
-  top: 0;
-}
 .arrow {
   height: 10rem;
   width: 2rem;
