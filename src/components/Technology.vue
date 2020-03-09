@@ -1,0 +1,43 @@
+<template>
+  <div class="technology">
+    <div class="imgWrapper">
+      <img :src="src" :alt="tech" class="techImg" />
+    </div>
+    <p class="techText">{{ tech }}</p>
+  </div>
+</template>
+<script>
+export default {
+  name: "Technology",
+  props: { tech: String },
+  computed: {
+    src: function() {
+      const src = require(`../assets/technologies/${this.tech}.svg`);
+      return src;
+    }
+  }
+};
+</script>
+<style scoped>
+.technology {
+  width: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem 3rem 1rem;
+  justify-content: center;
+}
+.imgWrapper {
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.techImg {
+  max-width: 100%;
+  max-height: 100%;
+}
+.techText {
+  margin: 0;
+}
+</style>
