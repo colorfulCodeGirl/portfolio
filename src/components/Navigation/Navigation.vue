@@ -2,9 +2,9 @@
   <header class="header">
     <Logo class="logo-img" />
     <h1 class="logo-text">ALEX VYTIAHLOVSKA</h1>
-    <div class="navItems">
+    <nav class="navItems">
       <NavItem v-for="item in items" :item="item" :key="item.index" />
-    </div>
+    </nav>
   </header>
 </template>
 <style scoped>
