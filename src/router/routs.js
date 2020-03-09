@@ -3,7 +3,10 @@ import Technologies from "../views/Technologies.vue";
 import Contact from "../views/Contact.vue";
 
 const routs = [
-  { path: "/", redirect: "/projects" },
+  {
+    path: "/",
+    redirect: "/projects"
+  },
   { path: "/projects", component: Projects },
   { path: "/technologies", component: Technologies },
   { path: "/contact", component: Contact }

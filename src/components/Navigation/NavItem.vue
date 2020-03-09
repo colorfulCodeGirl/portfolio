@@ -1,10 +1,8 @@
 <template>
-  <li class="item">
-    <router-link class="itemLink" :class="{ activeLink: active }" :to="rout">{{
-      item.name
-    }}</router-link>
-    <hr class="line" :class="{ activeLine: active }" />
-  </li>
+  <router-link class="item" :to="`/${item.name}`">
+    <p>{{ item.name }}</p>
+    <hr class="line" />
+  </router-link>
 </template>
 
 <style scoped>
@@ -13,9 +11,6 @@
   flex-direction: column;
   cursor: pointer;
   padding-top: 0.9rem;
-}
-
-.itemLink {
   text-decoration: none;
   color: #ffffff;
   text-transform: uppercase;
@@ -24,18 +19,13 @@
   letter-spacing: 0.05rem;
 }
 
-.itemLink:focus,
-.itemLink:active {
-  border: none;
-}
-
 @media (min-width: 900px) {
-  .itemLink {
+  .item {
     font-size: 1.3rem;
   }
 }
 
-.activeLink {
+.router-link-active {
   color: #ffd500;
   transition: color 0.4s 0.3s linear;
 }
@@ -54,7 +44,7 @@
   transition: transform 0.1s linear;
 }
 
-.activeLine {
+.router-link-active .line {
   transform: scaleX(1);
   transition: transform 0.4s 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -64,13 +54,7 @@
 export default {
   name: "NavItem",
   props: {
-    item: Object,
-    active: Boolean
-  },
-  computed: {
-    rout: function() {
-      return `/${this.item.name.toLowerCase()}`;
-    }
+    item: Object
   }
 };
 </script>
