@@ -1,6 +1,6 @@
 <template>
   <router-link class="item" :to="`/${item.name}`">
-    <p>{{ item.name }}</p>
+    <p class="text">{{ item.name }}</p>
     <hr class="line" />
   </router-link>
 </template>
@@ -28,6 +28,10 @@
 .router-link-active {
   color: #ffd500;
   transition: color 0.4s 0.3s linear;
+}
+
+.text {
+  margin: 0;
 }
 
 .line {
