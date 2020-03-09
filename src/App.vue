@@ -1,10 +1,8 @@
 <template>
   <div class="app">
-    <vue-simple-scrollbar :scrollbarColor="scrollBarColor">
-      <Navigation />
-      <Projects />
-      <Footer />
-    </vue-simple-scrollbar>
+    <Navigation />
+    <router-view />
+    <Footer />
   </div>
 </template>
 
@@ -26,18 +24,14 @@
 </style>
 
 <script>
-import VueSimpleScrollbar from "vue-simple-scrollbar";
 import Navigation from "@/components/Navigation/Navigation.vue";
 import Footer from "@/components/Footer.vue";
-import Projects from "@/views/Projects.vue";
 
 export default {
   name: "App",
   components: {
-    VueSimpleScrollbar,
     Navigation,
-    Footer,
-    Projects
+    Footer
   },
   data: () => ({
     scrollBarColor: "rgba(255, 255, 255, 0.5)"

@@ -3,13 +3,7 @@
     <Logo class="logo-img" />
     <h1 class="logo-text">ALEX VYTIAHLOVSKA</h1>
     <div class="navItems">
-      <NavItem
-        v-for="item in items"
-        :item="item"
-        :active="item.index === curentlyActiveInd"
-        :key="item.index"
-        @changeTab="handleTab"
-      />
+      <NavItem v-for="item in items" :item="item" :key="item.index" />
     </div>
   </header>
 </template>
@@ -73,17 +67,11 @@ export default {
   data: () => {
     return {
       items: [
-        { name: "Projects", index: 0 },
-        { name: "Technologies", index: 1 },
-        { name: "Contact", index: 2 }
-      ],
-      curentlyActiveInd: 0
+        { name: "projects", index: 0 },
+        { name: "technologies", index: 1 },
+        { name: "contact", index: 2 }
+      ]
     };
-  },
-  methods: {
-    handleTab: function(ind) {
-      this.curentlyActiveInd = ind;
-    }
   }
 };
 </script>
