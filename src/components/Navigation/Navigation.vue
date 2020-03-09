@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <Logo class="logo-img" />
-    <h1 class="logo-text">ALEX VYTIAHLOVSKA</h1>
+    <router-link to="/" class="logo-text">ALEX VYTIAHLOVSKA</router-link>
     <nav class="navItems">
       <NavItem v-for="item in items" :item="item" :key="item.index" />
     </nav>
@@ -17,6 +17,7 @@
 }
 .logo-text {
   flex-basis: 80%;
+  text-decoration: none;
   font-weight: 300;
   font-size: 2rem;
   color: #ffffff;
