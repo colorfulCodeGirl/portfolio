@@ -8,6 +8,14 @@
         :tech="technology"
       />
     </section>
+    <h2 class="sectionHeading">Design</h2>
+    <section class="technologies">
+      <technology
+        v-for="technology in design"
+        :key="technology"
+        :tech="technology"
+      />
+    </section>
   </main>
 </template>
 
@@ -34,7 +42,8 @@ export default {
         "npm",
         "ESLint",
         "Prettier"
-      ]
+      ],
+      design: ["Photoshop", "Adobe XD", "CorelDraw", "inDesign"]
     };
   }
 };
@@ -62,6 +71,14 @@ export default {
 .technologies {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   grid-column: 3 / 6;
+}
+.sectionHeading {
+  grid-column: 2 / -1;
+  text-align: center;
+  font-weight: 300;
+  text-transform: uppercase;
+  padding-bottom: 2rem;
 }
 </style>
