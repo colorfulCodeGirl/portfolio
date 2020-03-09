@@ -26,7 +26,7 @@
 <style scoped>
 .footer {
   padding: 0.8rem;
-  margin-top: 3rem;
+  padding-top: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
