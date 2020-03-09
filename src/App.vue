@@ -12,7 +12,7 @@
 .app {
   background-color: #141618;
   font-family: "Open Sans", sans-serif;
-  height: 100vh;
+  min-height: 100vh;
   box-sizing: border-box;
 }
 
