@@ -15,16 +15,27 @@
         </p>
       </div>
       <a class="link" href="https://github.com/Vanilna">
-        <img class="linkImg" src="../assets/contact/github.svg" alt="github" />PORTFOLIO
+        <img class="linkImg" src="../assets/contact/github.svg" alt="github" />
+        PORTFOLIO
       </a>
       <a class="link" href="https://www.linkedin.com/in/o-vytiahlovska/">
-        <img class="linkImg" src="../assets/contact/linkedin.svg" alt="linkedin" />LINKEDIN
+        <img
+          class="linkImg"
+          src="../assets/contact/linkedin.svg"
+          alt="linkedin"
+        />
+        LINKEDIN
       </a>
       <a class="link" href="mailto:o.vytiahlovska@gmail.com">
-        <img class="linkImg" src="../assets/contact/mail.svg" alt="mail" />o.vytiahlovska@gmail.com
+        <img class="linkImg" src="../assets/contact/mail.svg" alt="mail" />
+        o.vytiahlovska@gmail.com
       </a>
     </div>
-    <img src="../assets/contact/oleksandra.jpg" alt="Alex Vytiahlovska" class="portrait" />
+    <img
+      src="../assets/contact/oleksandra.jpg"
+      alt="Alex Vytiahlovska"
+      class="portrait"
+    />
   </main>
 </template>
 
