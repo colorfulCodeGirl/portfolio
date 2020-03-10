@@ -1,5 +1,31 @@
 <template>
-  <p>contact</p>
+  <main class="content">
+    <p class="decorText">Technologies</p>
+    <div class="info-block">
+      <div class="text">
+        <p>
+          I’m a goal-oriented person, who really wants to change career! I've
+          self-studied web development for 2 years, made 1 big project and a
+          couple of smaller ones, using JavaScript, React, CSS and HTML. I'm
+          determined, I love to study and I love to code.
+        </p>
+        <p>
+          Thanks to my previous work experience I’ve developed great
+          communicative skills both with colleagues and with clients.
+        </p>
+      </div>
+      <a class="link" href="https://github.com/Vanilna">
+        <img class="linkImg" src="../assets/contact/github.svg" alt="github" />PORTFOLIO
+      </a>
+      <a class="link" href="https://www.linkedin.com/in/o-vytiahlovska/">
+        <img class="linkImg" src="../assets/contact/linkedin.svg" alt="linkedin" />LINKEDIN
+      </a>
+      <a class="link" href="mailto:o.vytiahlovska@gmail.com">
+        <img class="linkImg" src="../assets/contact/mail.svg" alt="mail" />o.vytiahlovska@gmail.com
+      </a>
+    </div>
+    <img src="../assets/contact/oleksandra.jpg" alt="Alex Vytiahlovska" class="portrait" />
+  </main>
 </template>
 
 <script>
@@ -7,3 +33,45 @@ export default {
   name: "Contact"
 };
 </script>
+<style scoped>
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 15% repeat(5, 1fr);
+  grid-template-rows: auto;
+}
+.decorText {
+  grid-column: 1 / 2;
+  grid-row: 1 / 4;
+  text-transform: uppercase;
+  font-size: 3rem;
+  letter-spacing: 0.5rem;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  padding: 0;
+  margin: 0;
+  justify-self: center;
+}
+.info-block {
+  grid-column: 3 / 5;
+}
+.portrait {
+  grid-column: 5 / 6;
+}
+.link {
+  text-decoration: none;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+.linkImg {
+  max-height: 100%;
+  max-width: 100%;
+  height: 1.7rem;
+  padding: 0.7rem 0.5rem 0.7rem 0;
+}
+.portrait {
+  max-width: 100%;
+}
+</style>
