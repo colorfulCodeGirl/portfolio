@@ -1,6 +1,6 @@
 <template>
   <main class="content">
-    <p class="decorText">Technologies</p>
+    <p class="decorText">Contact</p>
     <div class="info-block">
       <div class="text">
         <p>

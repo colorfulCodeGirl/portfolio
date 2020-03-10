@@ -2,24 +2,20 @@
   <footer class="footer">
     <Logo class="logo" />
     <div class="navigation">
-      <a href="#" class="navLink">Projects</a>
+      <router-link to="/projects" class="navLink">Projects</router-link>
       <span>|</span>
-      <a href="#" class="navLink">Technologi</a>
+      <router-link to="/technologies" class="navLink">Technologies</router-link>
       <span>|</span>
-      <a href="#" class="navLink">Contact</a>
+      <router-link to="/contact" class="navLink">Contact</router-link>
     </div>
     <hr class="line" />
     <div class="contactLinks">
-      <img
-        class="contactLink"
-        src="../assets/contact/github.svg"
-        alt="github"
-      />
-      <img
-        class="contactLink"
-        src="../assets/contact/linkedin.svg"
-        alt="linkedin"
-      />
+      <a class="link" href="https://github.com/Vanilna">
+        <img class="contactLink" src="../assets/contact/github.svg" alt="github" />
+      </a>
+      <a class="link" href="https://www.linkedin.com/in/o-vytiahlovska/">
+        <img class="contactLink" src="../assets/contact/linkedin.svg" alt="linkedin" />
+      </a>
     </div>
   </footer>
 </template>
