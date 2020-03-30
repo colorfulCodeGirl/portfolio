@@ -142,11 +142,6 @@ export default {
   grid-row: 1 / 2;
   width: 100%;
   display: flex;
-  @media (orientation: landscape;) {
-    height: 80vh;
-    grid-column: 5 / 7;
-    grid-row: auto;
-  }
 }
 .decorText {
   grid-column: 1 / 2;
@@ -159,9 +154,6 @@ export default {
   padding: 0;
   margin: 0;
   justify-self: center;
-  @media (orientation: landscape;) {
-    grid-row: 1 / 4;
-  }
 }
 .iframe {
   grid-column: 2 / 6;
@@ -169,9 +161,19 @@ export default {
   border: 1px solid #ffffff;
   height: 60vh;
   width: 100%;
-  @media (orientation: landscape;) {
+}
+@media (orientation: landscape) {
+  .iframe {
     grid-column: 2 / 5;
     grid-row: 1 / 4;
+  }
+  .decorText {
+    grid-row: 1 / 4;
+  }
+  .projectsContainer {
+    height: 80vh;
+    grid-column: 5 / 7;
+    grid-row: auto;
   }
 }
 </style>
