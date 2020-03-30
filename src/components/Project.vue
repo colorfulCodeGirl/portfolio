@@ -101,7 +101,17 @@ export default {
   justify-content: space-between;
   flex-wrap: wrap;
   cursor: pointer;
-  @media (orientation: landscape;) {
+}
+@media (min-width: 700px) {
+  .project {
+    width: 90%;
+    margin: 0.3rem auto;
+  }
+}
+@media (orientation: landscape) {
+  .project {
+    width: auto;
+    margin: 0;
     margin-left: 0.5rem;
     padding: 0.5rem 1rem 0.5rem 1.5rem;
   }

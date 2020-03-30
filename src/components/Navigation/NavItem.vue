@@ -19,6 +19,12 @@
   letter-spacing: 0.05rem;
 }
 
+@media (min-width: 700px) and (orientation: portrait) {
+  .item {
+    padding: 0.9rem;
+    padding-bottom: 0;
+  }
+}
 @media (min-width: 900px) {
   .item {
     font-size: 1.3rem;

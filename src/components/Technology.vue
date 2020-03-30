@@ -40,7 +40,7 @@ export default {
 .techText {
   margin: 0;
 }
-@media (min-width: 600px) and (orientation: landscape) {
+@media (min-width: 600px) {
   .technology {
     width: 5rem;
     padding: 0 1rem 3rem 1rem;

@@ -76,7 +76,7 @@ export default {
   text-transform: uppercase;
   padding-bottom: 2rem;
 }
-@media (min-width: 600px) and (orientation: landscape) {
+@media (min-width: 600px) {
   .decorText {
     margin: 0;
   }

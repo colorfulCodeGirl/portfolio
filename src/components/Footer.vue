@@ -39,7 +39,7 @@
 .navigation {
   display: flex;
   padding: 1rem 0;
-  width: 90%;
+  width: 100%;
   justify-content: space-between;
 }
 .navLink {
@@ -47,6 +47,15 @@
   text-transform: uppercase;
   font-weight: 300;
   color: #ffffff;
+}
+@media (min-width: 700px) and (orientation: portrait) {
+  .navigation {
+    max-width: 90%;
+    width: auto;
+  }
+  .navLink {
+    padding: 0 0.9rem;
+  }
 }
 .line {
   width: 100%;

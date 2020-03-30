@@ -131,7 +131,7 @@ export default {
     isMobile: function() {
       const windowHeight = window.innerHeight;
       const windowWidth = window.innerWidth;
-      return windowHeight > windowWidth && windowHeight - windowWidth > 200;
+      return windowHeight - windowWidth > 200;
     }
   }
 };
@@ -173,12 +173,18 @@ export default {
   height: 57vh;
   margin: 0 auto;
 }
+@media (min-width: 700px) {
+  .iframe {
+    max-width: 60vw;
+  }
+}
 @media (orientation: landscape) {
   .iframe {
     height: 60vh;
     grid-column: 2 / 5;
     grid-row: 1 / 4;
     width: 100%;
+    max-width: auto;
     margin: 0;
   }
   .decorText {

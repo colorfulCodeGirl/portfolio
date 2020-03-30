@@ -7,6 +7,24 @@
     </nav>
   </header>
 </template>
+<script>
+import NavItem from "@/components/Navigation/NavItem.vue";
+import Logo from "@/components/UI/Logo.vue";
+
+export default {
+  name: "Navigation",
+  components: { NavItem, Logo },
+  data: () => {
+    return {
+      items: [
+        { name: "projects", index: 0 },
+        { name: "technologies", index: 1 },
+        { name: "contact", index: 2 }
+      ]
+    };
+  }
+};
+</script>
 <style scoped>
 .header {
   display: flex;
@@ -15,7 +33,7 @@
   align-items: center;
   padding-bottom: 0;
 }
-@media (min-width: 600) and (orientation: landscape) {
+@media (min-width: 600px) {
   .header {
     padding-bottom: 3rem;
   }
@@ -42,6 +60,12 @@
   display: flex;
   justify-content: space-between;
 }
+@media (min-width: 700px) and (orientation: portrait) {
+  .navItems {
+    max-width: 100%;
+    width: auto;
+  }
+}
 @media (orientation: landscape) {
   .header {
     max-width: 1200px;
@@ -65,21 +89,3 @@
   }
 }
 </style>
-<script>
-import NavItem from "@/components/Navigation/NavItem.vue";
-import Logo from "@/components/UI/Logo.vue";
-
-export default {
-  name: "Navigation",
-  components: { NavItem, Logo },
-  data: () => {
-    return {
-      items: [
-        { name: "projects", index: 0 },
-        { name: "technologies", index: 1 },
-        { name: "contact", index: 2 }
-      ]
-    };
-  }
-};
-</script>
