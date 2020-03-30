@@ -1,7 +1,6 @@
 <template>
   <main class="content">
     <p class="decorText">Projects</p>
-    <iframe class="iframe" :src="projects[activeId].web"></iframe>
     <div class="projectsContainer">
       <vue-simple-scrollbar :scrollbarColor="scrollBarColor" v-if="!isMobile()">
         <Project
@@ -22,6 +21,7 @@
         :isFirst="activeId === 0"
       />
     </div>
+    <iframe class="iframe" :src="projects[activeId].web"></iframe>
   </main>
 </template>
 <script>

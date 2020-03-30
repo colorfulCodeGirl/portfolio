@@ -163,6 +163,9 @@ export default {
   padding: 0.1rem 0.5rem;
   margin-left: 0.5rem;
 }
+.link:focus {
+  border: 1px solid #ffffff;
+}
 .line {
   border: 0;
   height: 1px;
