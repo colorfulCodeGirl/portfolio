@@ -3,7 +3,7 @@
     <p class="decorText">Projects</p>
     <iframe class="iframe" :src="projects[activeId].web"></iframe>
     <div class="projectsContainer">
-      <vue-simple-scrollbar :scrollbarColor="scrollBarColor">
+      <vue-simple-scrollbar :scrollbarColor="scrollBarColor" v-if="!isMobile()">
         <Project
           v-for="(project, index) in projects"
           :isActive="index === activeId"
@@ -12,6 +12,13 @@
           @changeProject="changeProject(index)"
         />
       </vue-simple-scrollbar>
+      <Project
+        v-else
+        :isActive="true"
+        :project="projects[activeId]"
+        :isMobile="true"
+        @changeProject="changeProjectMobile(direction)"
+      />
     </div>
   </main>
 </template>
@@ -111,6 +118,11 @@ export default {
   methods: {
     changeProject: function(id) {
       this.activeId = id;
+    },
+    isMobile: function() {
+      const windowHeight = window.innerHeight;
+      const windowWidth = window.innerWidth;
+      return windowHeight > windowWidth && windowHeight - windowWidth > 200;
     }
   }
 };
@@ -126,13 +138,19 @@ export default {
   grid-template-rows: auto;
 }
 .projectsContainer {
-  grid-column: 5 / 7;
-  height: 80vh;
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
   width: 100%;
+  display: flex;
+  @media (orientation: landscape;) {
+    height: 80vh;
+    grid-column: 5 / 7;
+    grid-row: auto;
+  }
 }
 .decorText {
   grid-column: 1 / 2;
-  grid-row: 1 / 4;
+  grid-row: 2 / 4;
   text-transform: uppercase;
   font-size: 3rem;
   letter-spacing: 0.5rem;
@@ -141,12 +159,19 @@ export default {
   padding: 0;
   margin: 0;
   justify-self: center;
+  @media (orientation: landscape;) {
+    grid-row: 1 / 4;
+  }
 }
 .iframe {
-  grid-column: 2 / 5;
-  grid-row: 1 / 4;
+  grid-column: 2 / 6;
+  grid-row: 2 / 4;
   border: 1px solid #ffffff;
   height: 60vh;
   width: 100%;
+  @media (orientation: landscape;) {
+    grid-column: 2 / 5;
+    grid-row: 1 / 4;
+  }
 }
 </style>
