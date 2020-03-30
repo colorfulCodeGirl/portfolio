@@ -48,15 +48,6 @@
   font-weight: 300;
   color: #ffffff;
 }
-@media (min-width: 700px) and (orientation: portrait) {
-  .navigation {
-    max-width: 90%;
-    width: auto;
-  }
-  .navLink {
-    padding: 0 0.9rem;
-  }
-}
 .line {
   width: 100%;
   border: 0;
@@ -76,6 +67,21 @@
 }
 .contactLink {
   height: 5vh;
+}
+@media (min-width: 700px) and (orientation: portrait) {
+  .navigation {
+    max-width: 90%;
+    width: auto;
+  }
+  .navLink {
+    padding: 0 0.9rem;
+  }
+  .contactLink {
+    height: 4vh;
+  }
+  .contactLinks {
+    width: 15%;
+  }
 }
 @media (orientation: landscape) {
   .footer {
