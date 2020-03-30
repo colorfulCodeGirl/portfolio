@@ -97,7 +97,7 @@ export default {
 <style scoped>
 .project {
   display: flex;
-  padding: 1rem 0.5rem;
+  padding: 0 0.5rem 2rem 0.5rem;
   justify-content: space-between;
   flex-wrap: wrap;
   cursor: pointer;

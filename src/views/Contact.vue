@@ -3,7 +3,7 @@
     <p class="decorText">Contact</p>
     <div class="info-block">
       <div class="text">
-        <p>
+        <p class="margin-top-0">
           I’m a goal-oriented person, who really wants to change career! I've
           self-studied web development for 2 years, made 1 big project and a
           couple of smaller ones, using JavaScript, React, CSS and HTML. I'm
@@ -19,11 +19,7 @@
         PORTFOLIO
       </a>
       <a class="link" href="https://www.linkedin.com/in/o-vytiahlovska/">
-        <img
-          class="linkImg"
-          src="../assets/contact/linkedin.svg"
-          alt="linkedin"
-        />
+        <img class="linkImg" src="../assets/contact/linkedin.svg" alt="linkedin" />
         LINKEDIN
       </a>
       <a class="link" href="mailto:o.vytiahlovska@gmail.com">
@@ -31,11 +27,7 @@
         o.vytiahlovska@gmail.com
       </a>
     </div>
-    <img
-      src="../assets/contact/oleksandra.jpg"
-      alt="Alex Vytiahlovska"
-      class="portrait"
-    />
+    <img src="../assets/contact/oleksandra.jpg" alt="Alex Vytiahlovska" class="portrait" />
   </main>
 </template>
 
@@ -65,10 +57,18 @@ export default {
   justify-self: center;
 }
 .info-block {
-  grid-column: 3 / 5;
+  grid-column: 2 / 7;
+  max-width: 80%;
+  justify-self: center;
 }
 .portrait {
-  grid-column: 5 / 6;
+  width: 10rem;
+  height: 10.5rem;
+  grid-row: 1 / 2;
+  grid-column: 2 / -1;
+  border-radius: 50%;
+  margin: 0 auto;
+  object-fit: cover;
 }
 .link {
   text-decoration: none;
@@ -82,7 +82,20 @@ export default {
   height: 1.7rem;
   padding: 0.7rem 0.5rem 0.7rem 0;
 }
-.portrait {
-  max-width: 100%;
+@media (min-width: 600px) {
+  .margin-top-0 {
+    margin-top: 0;
+  }
+  .info-block {
+    grid-column: 3 / 5;
+    max-width: 90%;
+    justify-self: stretch;
+  }
+  .portrait {
+    grid-column: 5 / 6;
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+  }
 }
 </style>

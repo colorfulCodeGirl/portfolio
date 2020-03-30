@@ -31,7 +31,7 @@ export default {
   flex-direction: column;
   padding: 0.8rem;
   align-items: center;
-  padding-bottom: 0;
+  padding-bottom: 1rem;
 }
 @media (min-width: 600px) {
   .header {
