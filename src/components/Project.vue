@@ -120,16 +120,18 @@ export default {
   stroke-width: 5rem;
   stroke: #ffd500;
   flex-basis: 7%;
-  @media (orientation: landscape;) {
-    height: 10rem;
-  }
 }
 .arrow.right {
   transform: rotate(180deg);
 }
 .content.active {
   flex-basis: 80%;
-  @media (orientation: landscape;) {
+}
+@media (orientation: landscape) {
+  .arrow {
+    height: 10rem;
+  }
+  .content.active {
     flex-basis: 90%;
   }
 }
