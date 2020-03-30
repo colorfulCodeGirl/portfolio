@@ -42,7 +42,7 @@
       @arrowClick="emitArrowEvent('right')"
       :isDisabled="isLast"
     />
-    <hr class="line" />
+    <hr class="line" v-if="!isMobile" />
   </div>
 </template>
 <script>
@@ -97,7 +97,7 @@ export default {
 <style scoped>
 .project {
   display: flex;
-  padding: 0.5rem 1rem;
+  padding: 1rem 0.5rem;
   justify-content: space-between;
   flex-wrap: wrap;
   cursor: pointer;

@@ -11,18 +11,10 @@
     <hr class="line" />
     <div class="contactLinks">
       <a class="link" href="https://github.com/Vanilna">
-        <img
-          class="contactLink"
-          src="../assets/contact/github.svg"
-          alt="github"
-        />
+        <img class="contactLink" src="../assets/contact/github.svg" alt="github" />
       </a>
       <a class="link" href="https://www.linkedin.com/in/o-vytiahlovska/">
-        <img
-          class="contactLink"
-          src="../assets/contact/linkedin.svg"
-          alt="linkedin"
-        />
+        <img class="contactLink" src="../assets/contact/linkedin.svg" alt="linkedin" />
       </a>
     </div>
   </footer>
@@ -30,10 +22,15 @@
 <style scoped>
 .footer {
   padding: 0.8rem;
-  padding-top: 5rem;
+  padding-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+@media (orientation: landscape) and (min-width: 600px) {
+  .footer {
+    padding-top: 5rem;
+  }
 }
 .logo {
   max-width: 30%;
