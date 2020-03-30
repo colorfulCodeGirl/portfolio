@@ -12,7 +12,12 @@ export default {
   props: { tech: String },
   computed: {
     src: function() {
-      const src = require(`../assets/technologies/${this.tech}.svg`);
+      let src;
+      try {
+        src = require(`../assets/technologies/${this.tech}.svg`);
+      } catch {
+        src = require(`../assets/technologies/${this.tech}.png`);
+      }
       return src;
     }
   }
@@ -39,6 +44,7 @@ export default {
 }
 .techText {
   margin: 0;
+  text-align: center;
 }
 @media (min-width: 600px) {
   .technology {
