@@ -9,11 +9,7 @@
     <div class="content" :class="{ active: isActive }">
       <div class="heading">
         <h2 class="name">
-          <a href="#" @click="emitChange" class="headingLink">
-            {{
-            project.name
-            }}
-          </a>
+          <a href="#" @click="emitChange" class="headingLink">{{ project.name }}</a>
         </h2>
         <img v-for="techSrc in techSrces" :src="techSrc" :key="techSrc" class="technologie" />
       </div>
@@ -29,7 +25,7 @@
           class="link"
           type="button"
           aria-label="read all text"
-          v-if="isMobile"
+          v-if="isMobile && desriptionShort !== project.description"
           @click="showWholeDescription"
         >{{ isDescriptionWhole ? "hide" : "more..." }}</button>
         <a class="link" :href="project.web" target="_blank">web</a>
@@ -59,7 +55,8 @@ export default {
   },
   data: function() {
     return {
-      isDescriptionWhole: !this.isMobile
+      isDescriptionWhole: !this.isMobile,
+      isDescriptionShort: true
     };
   },
   components: { Arrow },
@@ -71,8 +68,9 @@ export default {
       return srces;
     },
     desriptionShort: function() {
-      const endOfSentence = this.project.description.indexOf(".") + 1;
-      return this.project.description.slice(0, endOfSentence);
+      const description = this.project.description;
+      const endOfSentence = description.indexOf(".") + 1;
+      return description.slice(0, endOfSentence);
     }
   },
   methods: {
