@@ -153,19 +153,24 @@ export default {
   text-orientation: mixed;
   padding: 0;
   margin: 0;
+  margin-left: 1rem;
   justify-self: center;
 }
 .iframe {
-  grid-column: 2 / 6;
+  grid-column: 2 / -1;
   grid-row: 2 / 4;
   border: 1px solid #ffffff;
-  height: 60vh;
-  width: 100%;
+  width: 90%;
+  height: 57vh;
+  margin: 0 auto;
 }
 @media (orientation: landscape) {
   .iframe {
+    height: 60vh;
     grid-column: 2 / 5;
     grid-row: 1 / 4;
+    width: 100%;
+    margin: 0;
   }
   .decorText {
     grid-row: 1 / 4;

@@ -13,21 +13,29 @@
   flex-direction: column;
   padding: 0.8rem;
   align-items: center;
-  @media (min-width: 600;) and (orientation: landscape;) {
+  padding-bottom: 0;
+}
+@media (min-width: 600) and (orientation: landscape) {
+  .header {
     padding-bottom: 3rem;
+  }
+}
+@media (min-width: 1200) {
+  .header {
+    padding: 0.8rem 0;
   }
 }
 .logo-text {
   flex-basis: 80%;
   text-decoration: none;
   font-weight: 300;
-  font-size: 2rem;
+  font-size: 1.3rem;
   color: #ffffff;
   flex-basis: 30%;
 }
 .logo-img {
   max-width: 100%;
-  height: 10vh;
+  height: 7vh;
 }
 .navItems {
   width: 100%;
@@ -44,19 +52,16 @@
   }
   .logo-text {
     flex-basis: 30%;
+    font-size: 2rem;
   }
   .logo-img {
     flex-basis: 15%;
+    height: 10vh;
   }
   .navItems {
     width: auto;
     flex-basis: 40%;
     margin-left: auto;
-  }
-}
-@media (min-width: 1200) {
-  .header {
-    padding: 0.8rem 0;
   }
 }
 </style>
