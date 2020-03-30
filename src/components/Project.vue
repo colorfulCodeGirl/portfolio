@@ -1,5 +1,5 @@
 <template>
-  <div class="project" :class="{ active: isActive }">
+  <div class="project" :class="{ active: isActive }" @click="emitChange">
     <arrow
       v-if="isActive"
       class="arrow"
@@ -9,7 +9,7 @@
     <div class="content" :class="{ active: isActive }">
       <div class="heading">
         <h2 class="name">
-          <a href="#" @click="emitEvent" class="headingLink">
+          <a href="#" @click="emitChange" class="headingLink">
             {{
             project.name
             }}
@@ -76,7 +76,7 @@ export default {
     }
   },
   methods: {
-    emitEvent: function() {
+    emitChange: function() {
       if (this.isMobile) {
         return;
       }
@@ -100,6 +100,7 @@ export default {
   padding: 0.5rem 1rem;
   justify-content: space-between;
   flex-wrap: wrap;
+  cursor: pointer;
   @media (orientation: landscape;) {
     margin-left: 0.5rem;
     padding: 0.5rem 1rem 0.5rem 1.5rem;
