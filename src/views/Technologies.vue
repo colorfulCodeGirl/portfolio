@@ -2,19 +2,11 @@
   <main class="content">
     <p class="decorText">Technologies</p>
     <section class="technologies">
-      <technology
-        v-for="technology in webTechnologies"
-        :key="technology"
-        :tech="technology"
-      />
+      <technology v-for="technology in webTechnologies" :key="technology" :tech="technology" />
     </section>
     <h2 class="sectionHeading">Design</h2>
     <section class="technologies">
-      <technology
-        v-for="technology in design"
-        :key="technology"
-        :tech="technology"
-      />
+      <technology v-for="technology in design" :key="technology" :tech="technology" />
     </section>
   </main>
 </template>
@@ -66,13 +58,16 @@ export default {
   text-orientation: mixed;
   padding: 0;
   margin: 0;
+  margin-left: 1rem;
+  margin-top: 1.5rem;
   justify-self: center;
 }
 .technologies {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  grid-column: 3 / 6;
+  grid-column: 2 / 7;
+  margin: 1.5rem 1rem;
 }
 .sectionHeading {
   grid-column: 2 / -1;
@@ -80,5 +75,14 @@ export default {
   font-weight: 300;
   text-transform: uppercase;
   padding-bottom: 2rem;
+}
+@media (min-width: 600px) and (orientation: landscape) {
+  .decorText {
+    margin: 0;
+  }
+  .technologies {
+    grid-column: 3 / 6;
+    margin: 0;
+  }
 }
 </style>

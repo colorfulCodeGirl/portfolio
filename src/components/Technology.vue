@@ -20,12 +20,12 @@ export default {
 </script>
 <style scoped>
 .technology {
-  width: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 1rem 3rem 1rem;
   justify-content: center;
+  width: 4.5rem;
+  padding: 0 0.5rem 2rem 0.5rem;
 }
 .imgWrapper {
   max-width: 100%;
@@ -39,5 +39,11 @@ export default {
 }
 .techText {
   margin: 0;
+}
+@media (min-width: 600px) and (orientation: landscape) {
+  .technology {
+    width: 5rem;
+    padding: 0 1rem 3rem 1rem;
+  }
 }
 </style>
