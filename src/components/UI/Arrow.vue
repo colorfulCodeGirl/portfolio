@@ -11,11 +11,12 @@
     clip-rule="evenodd"
     viewBox="0 0 343 1336.52"
     xmlns:xlink="http://www.w3.org/1999/xlink"
+    @click="$emit('arrowClick')"
   >
     <g id="Layer_x0020_1">
       <polyline
         fill="none"
-        stroke="#ffd500"
+        :stroke="color"
         stroke-width="15"
         stroke-miterlimit="22.9256"
         points="333.69,7.13 4.9,664.7 333.69,1322.27 "
@@ -25,6 +26,14 @@
 </template>
 <script>
 export default {
-  name: "Arrow"
+  name: "Arrow",
+  props: {
+    isDisabled: Boolean
+  },
+  computed: {
+    color: function() {
+      return this.isDisabled ? "#aaaaaa" : "#ffd500";
+    }
+  }
 };
 </script>

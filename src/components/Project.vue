@@ -1,25 +1,27 @@
 <template>
   <div class="project" :class="{ active: isActive }">
-    <arrow v-if="isActive" class="arrow" />
+    <arrow
+      v-if="isActive"
+      class="arrow"
+      @arrowClick="emitArrowEvent('left')"
+      :isDisabled="isMobile && isFirst"
+    />
     <div class="content" :class="{ active: isActive }">
       <div class="heading">
         <h2 class="name">
-          <a href="#" @click="emitEvent" class="headingLink">{{
+          <a href="#" @click="emitEvent" class="headingLink">
+            {{
             project.name
-          }}</a>
+            }}
+          </a>
         </h2>
-        <img
-          v-for="techSrc in techSrces"
-          :src="techSrc"
-          :key="techSrc"
-          class="technologie"
-        />
+        <img v-for="techSrc in techSrces" :src="techSrc" :key="techSrc" class="technologie" />
       </div>
       <p class="description">
         {{
-          isMobile && !isDescriptionWhole
-            ? desriptionShort
-            : project.description
+        isMobile && !isDescriptionWhole
+        ? desriptionShort
+        : project.description
         }}
       </p>
       <div class="links">
@@ -29,14 +31,17 @@
           aria-label="read all text"
           v-if="isMobile"
           @click="showWholeDescription"
-        >
-          {{ isDescriptionWhole ? "hide" : "more..." }}
-        </button>
+        >{{ isDescriptionWhole ? "hide" : "more..." }}</button>
         <a class="link" :href="project.web" target="_blank">web</a>
         <a class="link" :href="project.code" target="_blank">code</a>
       </div>
     </div>
-    <arrow v-if="isMobile" class="arrow right" />
+    <arrow
+      v-if="isMobile"
+      class="arrow right"
+      @arrowClick="emitArrowEvent('right')"
+      :isDisabled="isLast"
+    />
     <hr class="line" />
   </div>
 </template>
@@ -48,7 +53,9 @@ export default {
   props: {
     project: Object,
     isActive: Boolean,
-    isMobile: Boolean
+    isMobile: Boolean,
+    isLast: Boolean,
+    isFirst: Boolean
   },
   data: function() {
     return {
@@ -70,7 +77,16 @@ export default {
   },
   methods: {
     emitEvent: function() {
+      if (this.isMobile) {
+        return;
+      }
       this.$emit("changeProject");
+    },
+    emitArrowEvent: function(direction) {
+      if (!this.isMobile) {
+        return;
+      }
+      this.$emit("changeProjectMobile", direction);
     },
     showWholeDescription: function() {
       this.isDescriptionWhole = !this.isDescriptionWhole;

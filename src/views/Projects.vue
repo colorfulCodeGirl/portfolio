@@ -17,7 +17,9 @@
         :isActive="true"
         :project="projects[activeId]"
         :isMobile="true"
-        @changeProject="changeProjectMobile(direction)"
+        @changeProjectMobile="changeProjectMobile"
+        :isLast="activeId === projects.length - 1"
+        :isFirst="activeId === 0"
       />
     </div>
   </main>
@@ -118,6 +120,13 @@ export default {
   methods: {
     changeProject: function(id) {
       this.activeId = id;
+    },
+    changeProjectMobile: function(direction) {
+      const newId =
+        direction === "left" ? this.activeId - 1 : this.activeId + 1;
+      if (newId >= 0 && newId < this.projects.length) {
+        this.activeId = newId;
+      }
     },
     isMobile: function() {
       const windowHeight = window.innerHeight;
