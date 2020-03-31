@@ -65,7 +65,7 @@ export default {
           technologies: ["React", "CSS3"],
           description:
             "An advanced form made for practising form validation in React.",
-          web: "https://vanilna.github.io/react-form/public/index.html",
+          web: "https://vanilna-react-form.netlify.com",
           code: "https://github.com/Vanilna/react-form"
         },
         {
