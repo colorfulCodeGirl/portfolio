@@ -73,7 +73,7 @@ export default {
           technologies: ["SASS", "JavaScript", "HTML5"],
           description:
             "Mobile navigation created by the project of Aurélien Salomon for Orizon.",
-          web: "https://vanilna.github.io/mobileNav/",
+          web: "https://vanilna.github.io/mobileNav/app/index.html",
           code: "https://github.com/Vanilna/mobileNav"
         },
         {

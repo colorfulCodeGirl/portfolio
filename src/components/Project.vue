@@ -9,15 +9,22 @@
     <div class="content" :class="{ active: isActive }">
       <div class="heading">
         <h2 class="name">
-          <a href="#" @click="emitChange" class="headingLink">{{ project.name }}</a>
+          <a href="#" @click="emitChange" class="headingLink">
+            {{ project.name }}
+          </a>
         </h2>
-        <img v-for="techSrc in techSrces" :src="techSrc" :key="techSrc" class="technologie" />
+        <img
+          v-for="techSrc in techSrces"
+          :src="techSrc"
+          :key="techSrc"
+          class="technologie"
+        />
       </div>
       <p class="description">
         {{
-        isMobile && !isDescriptionWhole
-        ? desriptionShort
-        : project.description
+          isMobile && !isDescriptionWhole
+            ? desriptionShort
+            : project.description
         }}
       </p>
       <div class="links">
@@ -27,7 +34,9 @@
           aria-label="read all text"
           v-if="isMobile && desriptionShort !== project.description"
           @click="showWholeDescription"
-        >{{ isDescriptionWhole ? "hide" : "more..." }}</button>
+        >
+          {{ isDescriptionWhole ? "hide" : "more..." }}
+        </button>
         <a class="link" :href="project.web" target="_blank">web</a>
         <a class="link" :href="project.code" target="_blank">code</a>
       </div>
