@@ -118,9 +118,6 @@ export default {
     },
     showWholeDescription: function() {
       this.isDescriptionWhole = !this.isDescriptionWhole;
-    },
-    debug: function(item) {
-      console.log(item);
     }
   }
 };
