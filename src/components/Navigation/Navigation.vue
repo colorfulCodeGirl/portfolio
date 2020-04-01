@@ -58,7 +58,7 @@ export default {
 .navItems {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 @media (min-width: 700px) and (orientation: portrait) {
   .navItems {
@@ -66,7 +66,7 @@ export default {
     width: auto;
   }
 }
-@media (orientation: landscape) {
+@media (orientation: landscape) and (min-aspect-ratio: 4/3) and (min-width: 500px) {
   .header {
     max-width: 1200px;
     flex-direction: row;

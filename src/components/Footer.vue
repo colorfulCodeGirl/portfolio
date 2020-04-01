@@ -27,11 +27,6 @@
   flex-direction: column;
   align-items: center;
 }
-@media (orientation: landscape) and (min-width: 600px) {
-  .footer {
-    padding-top: 5rem;
-  }
-}
 .logo {
   max-width: 30%;
   height: 10vh;
@@ -40,7 +35,7 @@
   display: flex;
   padding: 1rem 0;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .navLink {
   text-decoration: none;
@@ -83,8 +78,9 @@
     width: 15%;
   }
 }
-@media (orientation: landscape) {
+@media (orientation: landscape) and (min-aspect-ratio: 4/3) and (min-width: 500px) {
   .footer {
+    padding-top: 5rem;
     max-width: 1200px;
     margin: 0 auto;
   }
