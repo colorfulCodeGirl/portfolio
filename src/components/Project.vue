@@ -13,10 +13,20 @@
             {{ project.name }}
           </a>
         </h2>
+        <inline-svg
+          v-for="{ src, name } in techSrces"
+          :src="src"
+          :key="name"
+          class="technologie"
+          :aria-label="name"
+          height="2rem"
+          width="2rem"
+        />
         <img
-          v-for="techSrc in techSrces"
-          :src="techSrc"
-          :key="techSrc"
+          v-for="{ src, name } in pngTech"
+          :src="src"
+          :key="name"
+          :alt="name"
           class="technologie"
         />
       </div>
@@ -51,6 +61,7 @@
   </div>
 </template>
 <script>
+import InlineSvg from "vue-inline-svg";
 import Arrow from "../components/UI/Arrow.vue";
 
 export default {
@@ -65,15 +76,25 @@ export default {
   data: function() {
     return {
       isDescriptionWhole: this.isLandscape,
-      isDescriptionShort: true
+      isDescriptionShort: true,
+      pngTech: []
     };
   },
-  components: { Arrow },
+  components: { Arrow, InlineSvg },
   computed: {
     techSrces: function() {
-      const srces = this.project.technologies.map(tech =>
-        require(`../assets/technologies/${tech}.svg`)
-      );
+      const srces = this.project.technologies.reduce((srcArray, tech) => {
+        try {
+          const src = require(`../assets/technologies/${tech}.svg`);
+          if (src) {
+            srcArray.push({ src, name: tech });
+          }
+        } catch {
+          const src = require(`../assets/technologies/${tech}.png`);
+          this.pngTech.push({ src, name: tech });
+        }
+        return srcArray;
+      }, []);
       return srces;
     },
     desriptionShort: function() {
@@ -97,6 +118,9 @@ export default {
     },
     showWholeDescription: function() {
       this.isDescriptionWhole = !this.isDescriptionWhole;
+    },
+    debug: function(item) {
+      console.log(item);
     }
   }
 };

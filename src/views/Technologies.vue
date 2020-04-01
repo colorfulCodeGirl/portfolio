@@ -2,11 +2,19 @@
   <main class="content">
     <p class="decorText">Technologies</p>
     <section class="technologies">
-      <technology v-for="technology in webTechnologies" :key="technology" :tech="technology" />
+      <technology
+        v-for="technology in webTechnologies"
+        :key="technology"
+        :tech="technology"
+      />
     </section>
     <h2 class="sectionHeading">Design</h2>
     <section class="technologies">
-      <technology v-for="technology in design" :key="technology" :tech="technology" />
+      <technology
+        v-for="technology in design"
+        :key="technology"
+        :tech="technology"
+      />
     </section>
   </main>
 </template>

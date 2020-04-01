@@ -1,15 +1,28 @@
 <template>
   <div class="technology">
     <div class="imgWrapper">
-      <img :src="src" :alt="tech" class="techImg" />
+      <inline-svg
+        :src="src"
+        class="techImg"
+        v-if="isSvg"
+        :aria-label="tech"
+        height="6rem"
+        width="6rem"
+      ></inline-svg>
+      <img :src="src" class="techImg" :alt="tech" v-else />
     </div>
     <p class="techText">{{ tech }}</p>
   </div>
 </template>
 <script>
+import InlineSvg from "vue-inline-svg";
+
 export default {
   name: "Technology",
   props: { tech: String },
+  components: {
+    InlineSvg
+  },
   computed: {
     src: function() {
       let src;
@@ -19,6 +32,9 @@ export default {
         src = require(`../assets/technologies/${this.tech}.png`);
       }
       return src;
+    },
+    isSvg: function() {
+      return this.src.includes(".svg");
     }
   }
 };
