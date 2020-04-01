@@ -40,13 +40,7 @@ export default {
       projects: [
         {
           name: "Art gallery",
-          technologies: [
-            "HTML5",
-            "CSS3",
-            "JavaScript",
-            "Webpack",
-            "Styled Components"
-          ],
+          technologies: ["HTML5", "CSS3", "JavaScript", "Webpack"],
           description:
             "An art gallery for a family of a famous Ukrainian artists. Such technologi stack was choosen to deepen my knowlage about fundamental technologies.",
           web: "https://vytiahlovski.netlify.com/",

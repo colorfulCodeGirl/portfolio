@@ -166,6 +166,7 @@ export default {
 }
 .heading {
   display: flex;
+  align-items: flex-start;
 }
 .headingLink {
   text-decoration: none;
