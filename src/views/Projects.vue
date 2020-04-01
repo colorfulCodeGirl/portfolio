@@ -129,9 +129,7 @@ export default {
       }
     },
     isMobile: function() {
-      const windowHeight = window.innerHeight;
-      const windowWidth = window.innerWidth;
-      return windowHeight - windowWidth > 200;
+      return window.matchMedia('(orientation: portrait)').matches;
     }
   }
 };
