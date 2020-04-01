@@ -4,7 +4,7 @@
       v-if="isActive"
       class="arrow"
       @arrowClick="emitArrowEvent('left')"
-      :isDisabled="isMobile && isFirst"
+      :isDisabled="!isLandscape && isFirst"
     />
     <div class="content" :class="{ active: isActive }">
       <div class="heading">
@@ -22,7 +22,7 @@
       </div>
       <p class="description">
         {{
-          isMobile && !isDescriptionWhole
+          !isLandscape && !isDescriptionWhole
             ? desriptionShort
             : project.description
         }}
@@ -32,7 +32,7 @@
           class="link"
           type="button"
           aria-label="read all text"
-          v-if="isMobile && desriptionShort !== project.description"
+          v-if="!isLandscape && desriptionShort !== project.description"
           @click="showWholeDescription"
         >
           {{ isDescriptionWhole ? "hide" : "more..." }}
@@ -42,12 +42,12 @@
       </div>
     </div>
     <arrow
-      v-if="isMobile"
+      v-if="!isLandscape"
       class="arrow right"
       @arrowClick="emitArrowEvent('right')"
       :isDisabled="isLast"
     />
-    <hr class="line" v-if="!isMobile" />
+    <hr class="line" v-if="isLandscape" />
   </div>
 </template>
 <script>
@@ -58,13 +58,13 @@ export default {
   props: {
     project: Object,
     isActive: Boolean,
-    isMobile: Boolean,
+    isLandscape: Boolean,
     isLast: Boolean,
     isFirst: Boolean
   },
   data: function() {
     return {
-      isDescriptionWhole: !this.isMobile,
+      isDescriptionWhole: this.isLandscape,
       isDescriptionShort: true
     };
   },
@@ -84,13 +84,13 @@ export default {
   },
   methods: {
     emitChange: function() {
-      if (this.isMobile) {
+      if (!this.isLandscape) {
         return;
       }
       this.$emit("changeProject");
     },
     emitArrowEvent: function(direction) {
-      if (!this.isMobile) {
+      if (this.isLandscape) {
         return;
       }
       this.$emit("changeProjectMobile", direction);

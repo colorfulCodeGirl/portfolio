@@ -2,11 +2,12 @@
   <main class="content">
     <p class="decorText">Projects</p>
     <div class="projectsContainer">
-      <vue-simple-scrollbar :scrollbarColor="scrollBarColor" v-if="!isMobile()">
+      <vue-simple-scrollbar :scrollbarColor="scrollBarColor" v-if="isLandscape">
         <Project
           v-for="(project, index) in projects"
           :isActive="index === activeId"
           :project="project"
+          :isLandscape="isLandscape"
           :key="project.name"
           @changeProject="changeProject(index)"
         />
@@ -15,7 +16,7 @@
         v-else
         :isActive="true"
         :project="projects[activeId]"
-        :isMobile="true"
+        :isLandscape="isLandscape"
         @changeProjectMobile="changeProjectMobile"
         :isLast="activeId === projects.length - 1"
         :isFirst="activeId === 0"
@@ -35,6 +36,7 @@ export default {
     return {
       activeId: 0,
       scrollBarColor: "rgba(255, 255, 255, 0.5)",
+      isLandscape: false,
       projects: [
         {
           name: "Art gallery",
@@ -128,9 +130,20 @@ export default {
         this.activeId = newId;
       }
     },
-    isMobile: function() {
-      return window.matchMedia('(orientation: portrait)').matches;
+    checkLandscape: function() {
+      this.isLandscape = window.matchMedia(
+        "(orientation: landscape) and (min-aspect-ratio: 4/3) and (min-width: 500px)"
+      ).matches;
     }
+  },
+  beforeMount() {
+    this.checkLandscape();
+  },
+  mounted() {
+    window.addEventListener("resize", this.checkLandscape);
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.checkLandscape);
   }
 };
 </script>
@@ -176,7 +189,7 @@ export default {
     max-width: 60vw;
   }
 }
-@media (orientation: landscape) {
+@media (orientation: landscape) and (min-aspect-ratio: 4/3) and (min-width: 500px) {
   .iframe {
     height: 60vh;
     grid-column: 2 / 5;
