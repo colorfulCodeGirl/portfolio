@@ -1,6 +1,6 @@
 <template>
   <main class="content">
-    <p class="decorText">Contact</p>
+    <scale-transition><p class="decorText">Contact</p></scale-transition>
     <div class="info-block">
       <div class="text">
         <p class="margin-top-0">
@@ -40,8 +40,11 @@
 </template>
 
 <script>
+import ScaleTransition from "@/utils/ScaleTransition.vue";
+
 export default {
-  name: "Contact"
+  name: "Contact",
+  components: { ScaleTransition }
 };
 </script>
 <style scoped>

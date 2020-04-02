@@ -1,6 +1,6 @@
 <template>
   <main class="content">
-    <p class="decorText">Projects</p>
+    <scale-transition><p class="decorText">Projects</p></scale-transition>
     <div class="projectsContainer">
       <vue-simple-scrollbar :scrollbarColor="scrollBarColor" v-if="isLandscape">
         <Project
@@ -22,16 +22,20 @@
         :isFirst="activeId === 0"
       />
     </div>
-    <iframe class="iframe" :src="projects[activeId].web"></iframe>
+    <transition @appear="appear">
+      <iframe class="iframe" :src="projects[activeId].web"></iframe>
+    </transition>
   </main>
 </template>
 <script>
 import VueSimpleScrollbar from "vue-simple-scrollbar";
+import gsap from "gsap";
 import Project from "@/components/Project.vue";
+import ScaleTransition from "@/utils/ScaleTransition.vue";
 
 export default {
   name: "Projects",
-  components: { VueSimpleScrollbar, Project },
+  components: { VueSimpleScrollbar, Project, ScaleTransition },
   data: function() {
     return {
       activeId: 0,
@@ -134,6 +138,16 @@ export default {
       this.isLandscape = window.matchMedia(
         "(orientation: landscape) and (min-aspect-ratio: 4/3) and (min-width: 500px)"
       ).matches;
+    },
+    appear: function(el, done) {
+      const tl = gsap.timeline();
+      tl.from(el, {
+        opacity: 0,
+        y: 160,
+        delay: 0.5,
+        duration: 0.7
+      });
+      done();
     }
   },
   beforeMount() {

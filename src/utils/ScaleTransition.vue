@@ -14,7 +14,8 @@ export default {
       gsap.from(el, {
         transformOrigin: "0% 0%",
         scaleY: 0,
-        duration: 1.5
+        duration: 1.2,
+        ease: "back.out(1)"
       });
       done();
     }
