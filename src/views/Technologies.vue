@@ -66,20 +66,13 @@ export default {
   methods: {
     appear: function(el, done) {
       const delay = el.dataset.index * 0.05;
-      gsap.fromTo(
-        el,
-        {
-          scale: 0,
-          y: -60
-        },
-        {
-          delay,
-          duration: 1.5,
-          scale: 1,
-          y: 0,
-          ease: "back.out(1)"
-        }
-      );
+      gsap.from(el, {
+        scale: 0,
+        y: -60,
+        delay,
+        duration: 1.5,
+        ease: "back.out(1)"
+      });
       done();
     }
   }
