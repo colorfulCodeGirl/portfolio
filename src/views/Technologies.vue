@@ -1,6 +1,6 @@
 <template>
   <main class="content">
-    <p class="decorText">Technologies</p>
+    <scale-transition><p class="decorText">Technologies</p></scale-transition>
     <transition-group
       class="technologies"
       name="technologies"
@@ -32,12 +32,13 @@
 </template>
 
 <script>
-import Technology from "@/components/Technology.vue";
 import gsap from "gsap";
+import Technology from "@/components/Technology.vue";
+import ScaleTransition from "@/utils/ScaleTransition.vue";
 
 export default {
   name: "Technologies",
-  components: { Technology },
+  components: { Technology, ScaleTransition },
   data: () => {
     return {
       webTechnologies: [
