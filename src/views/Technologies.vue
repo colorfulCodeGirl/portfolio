@@ -1,26 +1,39 @@
 <template>
   <main class="content">
     <p class="decorText">Technologies</p>
-    <section class="technologies">
+    <transition-group
+      class="technologies"
+      name="technologies"
+      tag="section"
+      @appear="appear"
+    >
       <technology
-        v-for="technology in webTechnologies"
+        v-for="(technology, index) in webTechnologies"
         :key="technology"
         :tech="technology"
+        :data-index="index"
       />
-    </section>
+    </transition-group>
     <h2 class="sectionHeading">Design</h2>
-    <section class="technologies">
+    <transition-group
+      class="technologies"
+      name="technologies"
+      tag="section"
+      @appear="appear"
+    >
       <technology
-        v-for="technology in design"
+        v-for="(technology, index) in design"
         :key="technology"
         :tech="technology"
+        :data-index="index"
       />
-    </section>
+    </transition-group>
   </main>
 </template>
 
 <script>
 import Technology from "@/components/Technology.vue";
+import gsap from "gsap";
 
 export default {
   name: "Technologies",
@@ -48,6 +61,26 @@ export default {
       ],
       design: ["Photoshop", "Adobe XD", "CorelDraw", "inDesign"]
     };
+  },
+  methods: {
+    appear: function(el, done) {
+      const delay = el.dataset.index * 0.05;
+      gsap.fromTo(
+        el,
+        {
+          scale: 0,
+          y: -60
+        },
+        {
+          delay,
+          duration: 1.5,
+          scale: 1,
+          y: 0,
+          ease: "back.out(1)"
+        }
+      );
+      done();
+    }
   }
 };
 </script>
