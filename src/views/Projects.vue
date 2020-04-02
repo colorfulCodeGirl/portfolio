@@ -2,27 +2,36 @@
   <main class="content">
     <scale-transition><p class="decorText">Projects</p></scale-transition>
     <div class="projectsContainer">
-      <vue-simple-scrollbar :scrollbarColor="scrollBarColor" v-if="isLandscape">
-        <Project
-          v-for="(project, index) in projects"
-          :isActive="index === activeId"
-          :project="project"
-          :isLandscape="isLandscape"
-          :key="project.name"
-          @changeProject="changeProject(index)"
-        />
+      <vue-simple-scrollbar
+        :scrollbarColor="scrollBarColor"
+        v-if="isLandscape"
+        style="overflov-x: hidden"
+      >
+        <transition-group tag="section" @appear="appearProjects">
+          <Project
+            v-for="(project, index) in projects"
+            :isActive="index === activeId"
+            :project="project"
+            :isLandscape="isLandscape"
+            :key="project.name"
+            :data-index="index"
+            @changeProject="changeProject(index)"
+          />
+        </transition-group>
       </vue-simple-scrollbar>
-      <Project
-        v-else
-        :isActive="true"
-        :project="projects[activeId]"
-        :isLandscape="isLandscape"
-        @changeProjectMobile="changeProjectMobile"
-        :isLast="activeId === projects.length - 1"
-        :isFirst="activeId === 0"
-      />
+      <transition @appear="appearProjects" v-else>
+        <Project
+          :isActive="true"
+          :project="projects[activeId]"
+          :isLandscape="isLandscape"
+          @changeProjectMobile="changeProjectMobile"
+          :isLast="activeId === projects.length - 1"
+          :isFirst="activeId === 0"
+          data-index="0"
+        />
+      </transition>
     </div>
-    <transition @appear="appear">
+    <transition @appear="appearFrame">
       <iframe class="iframe" :src="projects[activeId].web"></iframe>
     </transition>
   </main>
@@ -139,13 +148,22 @@ export default {
         "(orientation: landscape) and (min-aspect-ratio: 4/3) and (min-width: 500px)"
       ).matches;
     },
-    appear: function(el, done) {
-      const tl = gsap.timeline();
-      tl.from(el, {
+    appearFrame: function(el, done) {
+      gsap.from(el, {
         opacity: 0,
-        y: 160,
-        delay: 0.5,
-        duration: 0.7
+        delay: 0.7,
+        duration: 1.5
+      });
+      done();
+    },
+    appearProjects: function(el, done) {
+      const delay = 0.7 + el.dataset.index * 0.05;
+      gsap.from(el, {
+        scaleY: 0,
+        y: -60,
+        delay,
+        duration: 0.9,
+        ease: "back.out(1)"
       });
       done();
     }
@@ -163,6 +181,7 @@ export default {
 </script>
 <style scoped>
 @import "~vue-simple-scrollbar/dist/vue-simple-scrollbar.css";
+@import "./Projects.css";
 
 .content {
   max-width: 1200px;
@@ -198,6 +217,7 @@ export default {
   height: 57vh;
   margin: 0 auto;
 }
+
 @media (min-width: 700px) {
   .iframe {
     max-width: 60vw;
