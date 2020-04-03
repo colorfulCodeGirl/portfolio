@@ -33,28 +33,43 @@
         o.vytiahlovska@gmail.com
       </a>
     </div>
-    <picture class="portrait__wrapper">
-      <source
-        srcset="../assets/contact/oleksandra.jpg"
-        media="(min-width: 600px)"
-        alt="Alex Vytiahlovska"
-        class="portrait__img portrait__img-big"
-      />
-      <img
-        src="../assets/contact/oleksandra_250x250.jpg"
-        alt="Alex Vytiahlovska"
-        class="portrait__img"
-      />
-    </picture>
+    <transition @appear="appear">
+      <picture class="portrait__wrapper">
+        <source
+          srcset="../assets/contact/oleksandra.jpg"
+          media="(min-width: 600px)"
+          alt="Alex Vytiahlovska"
+          class="portrait__img portrait__img-big"
+        />
+        <img
+          src="../assets/contact/oleksandra_250x250.jpg"
+          alt="Alex Vytiahlovska"
+          class="portrait__img"
+        />
+      </picture>
+    </transition>
   </main>
 </template>
 
 <script>
 import ScaleTransition from "@/utils/ScaleTransition.vue";
+import gsap from "gsap";
 
 export default {
   name: "Contact",
-  components: { ScaleTransition }
+  components: { ScaleTransition },
+  methods: {
+    appear: function(el, done) {
+      gsap.from(el, {
+        transformOriginY: "0%",
+        scale: 0.9,
+        y: -60,
+        duration: 1,
+        ease: "back.out(1)"
+      });
+      done();
+    }
+  }
 };
 </script>
 <style scoped>
