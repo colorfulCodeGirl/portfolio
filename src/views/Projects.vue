@@ -31,7 +31,12 @@
         />
       </transition>
     </div>
-    <transition @leave="leaveCover" v-if="isCoverShown" :css="false">
+    <transition
+      @appear="appearCover"
+      @leave="leaveCover"
+      v-if="isCoverShown"
+      :css="false"
+    >
       <div class="iframe__cover">
         <inline-svg
           class="iframe__cover-logo"
@@ -145,6 +150,10 @@ export default {
   },
   methods: {
     changeProject: function(id) {
+      if (!this.isCoverShown) {
+        this.toggleCover();
+        setTimeout(this.toggleCover, 100);
+      }
       this.activeId = id;
     },
     changeProjectMobile: function(direction) {
@@ -159,14 +168,39 @@ export default {
         "(orientation: landscape) and (min-aspect-ratio: 4/3) and (min-width: 500px)"
       ).matches;
     },
-    hideCover: function() {
-      this.isCoverShown = false;
+    toggleCover: function() {
+      this.isCoverShown = !this.isCoverShown;
     },
     leaveCover: function(el, done) {
-      gsap.to(el, {
+      const tl = gsap.timeline();
+      tl.addLabel("start")
+        .to(
+          el,
+          {
+            scale: 1.03,
+            delay: 0.7,
+            duration: 0.7,
+            ease: "back.out(1.4)",
+            onComplete: done
+          },
+          "start"
+        )
+        .to(
+          el,
+          {
+            opacity: 0,
+            delay: 0.7,
+            duration: 0.3
+          },
+          "start"
+        );
+    },
+    appearCover: function(el, done) {
+      gsap.from(el, {
+        scale: 1.1,
         opacity: 0,
-        delay: 1.2,
-        duration: 1,
+        duration: 0.7,
+        ease: "back.out(1.4)",
         onComplete: done
       });
     },
@@ -174,7 +208,7 @@ export default {
       gsap.from(el, {
         opacity: 0,
         delay: 1.2,
-        duration: 1,
+        duration: 15,
         onComplete: done
       });
     },
@@ -194,11 +228,29 @@ export default {
     this.checkLandscape();
   },
   mounted() {
-    this.$refs.iframe.addEventListener("load", this.hideCover);
+    const context = this;
+    this.$refs.iframe.addEventListener(
+      "load",
+      function() {
+        context.toggleCover();
+      },
+      {
+        once: true
+      }
+    );
     window.addEventListener("resize", this.checkLandscape);
   },
   beforeDestroy() {
-    this.$refs.iframe.removeEventListener("load", this.hideCover);
+    const context = this;
+    this.$refs.iframe.removeEventListener(
+      "load",
+      function() {
+        context.toggleCover();
+      },
+      {
+        once: true
+      }
+    );
     window.removeEventListener("resize", this.checkLandscape);
   }
 };
@@ -260,7 +312,8 @@ export default {
   }
 }
 @media (orientation: landscape) and (min-aspect-ratio: 4/3) and (min-width: 500px) {
-  .iframe {
+  .iframe,
+  .iframe__cover {
     height: 60vh;
     grid-column: 2 / 5;
     grid-row: 1 / 4;
