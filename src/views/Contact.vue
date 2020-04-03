@@ -1,6 +1,8 @@
 <template>
   <main class="content">
-    <scale-transition><p class="decorText">Contact</p></scale-transition>
+    <scale-transition>
+      <p class="decorText">Contact</p>
+    </scale-transition>
     <div class="info-block">
       <div class="text">
         <p class="margin-top-0">
@@ -31,11 +33,19 @@
         o.vytiahlovska@gmail.com
       </a>
     </div>
-    <img
-      src="../assets/contact/oleksandra.jpg"
-      alt="Alex Vytiahlovska"
-      class="portrait"
-    />
+    <picture class="portrait__wrapper">
+      <source
+        srcset="../assets/contact/oleksandra.jpg"
+        media="(min-width: 600px)"
+        alt="Alex Vytiahlovska"
+        class="portrait__img portrait__img-big"
+      />
+      <img
+        src="../assets/contact/oleksandra_250x250.jpg"
+        alt="Alex Vytiahlovska"
+        class="portrait__img"
+      />
+    </picture>
   </main>
 </template>
 
@@ -72,14 +82,20 @@ export default {
   max-width: 80%;
   justify-self: center;
 }
-.portrait {
+.portrait__img {
   width: 10rem;
   height: 10.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 0.2rem solid #ffd500;
+}
+.portrait__img-big {
+  border: none;
+}
+.portrait__wrapper {
   grid-row: 1 / 2;
   grid-column: 2 / -1;
-  border-radius: 50%;
   margin: 0 auto;
-  object-fit: cover;
 }
 .link {
   text-decoration: none;
@@ -102,11 +118,14 @@ export default {
     max-width: 90%;
     justify-self: stretch;
   }
-  .portrait {
+  .portrait__wrapper {
     grid-column: 5 / 6;
+  }
+  .portrait__img {
     width: 100%;
     height: auto;
     border-radius: 0;
+    border: none;
   }
 }
 </style>
