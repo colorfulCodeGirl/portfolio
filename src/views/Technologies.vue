@@ -6,6 +6,7 @@
       name="technologies"
       tag="section"
       @appear="appear"
+      :css="false"
     >
       <technology
         v-for="(technology, index) in webTechnologies"
@@ -20,6 +21,7 @@
       name="technologies"
       tag="section"
       @appear="appear"
+      :css="false"
     >
       <technology
         v-for="(technology, index) in design"

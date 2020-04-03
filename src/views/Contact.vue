@@ -33,7 +33,7 @@
         o.vytiahlovska@gmail.com
       </a>
     </div>
-    <transition @appear="appear">
+    <transition @appear="appear" :css="false">
       <picture class="portrait__wrapper">
         <source
           srcset="../assets/contact/oleksandra.jpg"

@@ -1,5 +1,5 @@
 <template>
-  <transition @appear="appear">
+  <transition @appear="appear" :css="false">
     <slot></slot>
   </transition>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <Logo class="logo-img" />
+    <logo class="logo-img" />
     <router-link to="/" class="logo-text">ALEX VYTIAHLOVSKA</router-link>
     <nav class="navItems">
       <NavItem v-for="item in items" :item="item" :key="item.index" />

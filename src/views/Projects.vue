@@ -7,7 +7,7 @@
         v-if="isLandscape"
         style="overflov-x: hidden"
       >
-        <transition-group tag="section" @appear="appearProjects">
+        <transition-group tag="section" @appear="appearProjects" :css="false">
           <Project
             v-for="(project, index) in projects"
             :isActive="index === activeId"
@@ -19,7 +19,7 @@
           />
         </transition-group>
       </vue-simple-scrollbar>
-      <transition @appear="appearProjects" v-else>
+      <transition @appear="appearProjects" v-else :css="false">
         <Project
           :isActive="true"
           :project="projects[activeId]"
@@ -31,25 +31,36 @@
         />
       </transition>
     </div>
-    <transition @appear="appearFrame">
-      <iframe class="iframe" :src="projects[activeId].web"></iframe>
+    <transition @leave="leaveCover" v-if="isCoverShown" :css="false">
+      <div class="iframe__cover">
+        <inline-svg
+          class="iframe__cover-logo"
+          :src="require('@/assets/logo.svg')"
+        ></inline-svg>
+      </div>
+    </transition>
+    <transition @enter="enterIframe" :css="false" v-show="!isCoverShown">
+      <iframe class="iframe" :src="projects[activeId].web" ref="iframe">
+      </iframe>
     </transition>
   </main>
 </template>
 <script>
 import VueSimpleScrollbar from "vue-simple-scrollbar";
 import gsap from "gsap";
+import InlineSvg from "vue-inline-svg";
 import Project from "@/components/Project.vue";
 import ScaleTransition from "@/utils/ScaleTransition.vue";
 
 export default {
   name: "Projects",
-  components: { VueSimpleScrollbar, Project, ScaleTransition },
+  components: { VueSimpleScrollbar, Project, ScaleTransition, InlineSvg },
   data: function() {
     return {
       activeId: 0,
       scrollBarColor: "rgba(255, 255, 255, 0.5)",
       isLandscape: false,
+      isCoverShown: true,
       projects: [
         {
           name: "Art gallery",
@@ -148,13 +159,24 @@ export default {
         "(orientation: landscape) and (min-aspect-ratio: 4/3) and (min-width: 500px)"
       ).matches;
     },
-    appearFrame: function(el, done) {
+    hideCover: function() {
+      this.isCoverShown = false;
+    },
+    leaveCover: function(el, done) {
+      gsap.to(el, {
+        opacity: 0,
+        delay: 1.2,
+        duration: 1,
+        onComplete: done
+      });
+    },
+    enterIframe: function(el, done) {
       gsap.from(el, {
         opacity: 0,
-        delay: 0.7,
-        duration: 1.5
+        delay: 1.2,
+        duration: 1,
+        onComplete: done
       });
-      done();
     },
     appearProjects: function(el, done) {
       const delay = 0.7 + el.dataset.index * 0.05;
@@ -163,18 +185,20 @@ export default {
         y: -60,
         delay,
         duration: 0.9,
-        ease: "back.out(1)"
+        ease: "back.out(1)",
+        onComplete: done
       });
-      done();
     }
   },
   beforeMount() {
     this.checkLandscape();
   },
   mounted() {
+    this.$refs.iframe.addEventListener("load", this.hideCover);
     window.addEventListener("resize", this.checkLandscape);
   },
   beforeDestroy() {
+    this.$refs.iframe.removeEventListener("load", this.hideCover);
     window.removeEventListener("resize", this.checkLandscape);
   }
 };
@@ -209,7 +233,8 @@ export default {
   margin-left: 1rem;
   justify-self: center;
 }
-.iframe {
+.iframe,
+.iframe__cover {
   grid-column: 2 / -1;
   grid-row: 2 / 4;
   border: 1px solid #ffffff;
@@ -217,9 +242,20 @@ export default {
   height: 57vh;
   margin: 0 auto;
 }
-
+.iframe__cover {
+  background-color: #141618;
+  z-index: 3;
+  display: grid;
+}
+.iframe__cover-logo {
+  width: 60%;
+  height: 60%;
+  justify-self: center;
+  align-self: center;
+}
 @media (min-width: 700px) {
-  .iframe {
+  .iframe,
+  .iframe__cover {
     max-width: 60vw;
   }
 }
