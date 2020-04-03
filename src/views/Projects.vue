@@ -161,6 +161,10 @@ export default {
         direction === "left" ? this.activeId - 1 : this.activeId + 1;
       if (newId >= 0 && newId < this.projects.length) {
         this.activeId = newId;
+        if (!this.isCoverShown) {
+          this.toggleCover();
+          setTimeout(this.toggleCover, 200);
+        }
       }
     },
     checkLandscape: function() {
