@@ -36,13 +36,13 @@
     <transition @appear="appear" :css="false">
       <picture class="portrait__wrapper">
         <source
-          srcset="../assets/contact/oleksandra.jpg"
+          srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale/dpr_auto/f_auto/q_auto/w_400/v1586163910/Portfolio/oleksandra"
           media="(min-width: 600px)"
           alt="Alex Vytiahlovska"
           class="portrait__img portrait__img-big"
         />
         <img
-          src="../assets/contact/oleksandra_250x250.jpg"
+          src="https://res.cloudinary.com/vanilna/image/upload/c_crop,g_face,f_auto,q_auto,w_250,h_250,r_max/Portfolio/oleksandra_250x250"
           alt="Alex Vytiahlovska"
           class="portrait__img"
         />
@@ -58,16 +58,15 @@ import gsap from "gsap";
 export default {
   name: "Contact",
   components: { ScaleTransition },
+
   methods: {
     appear: function(el, done) {
       gsap.from(el, {
-        transformOriginY: "0%",
-        scale: 0.9,
-        y: -60,
+        opacity: 0,
+        delay: 0.4,
         duration: 1,
-        ease: "back.out(1)"
+        onComplete: done
       });
-      done();
     }
   }
 };
@@ -104,13 +103,13 @@ export default {
   object-fit: cover;
   border: 0.2rem solid #ffd500;
 }
-.portrait__img-big {
-  border: none;
-}
 .portrait__wrapper {
   grid-row: 1 / 2;
   grid-column: 2 / -1;
   margin: 0 auto;
+}
+.portrait__img-big {
+  border: none;
 }
 .link {
   text-decoration: none;
