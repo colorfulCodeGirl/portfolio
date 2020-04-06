@@ -135,27 +135,12 @@ export default {
           code: "https://github.com/Vanilna/memory-game"
         },
         {
-          name: "Balls and Desk Game",
-          technologies: ["JavaScript", "HTML5", "CSS3"],
-          description:
-            "First game in JavaScript using Canvas. Inspired by an exersice from course on CodeCademy.",
-          web: "https://vanilna.github.io/balls-and-desk/",
-          code: "https://github.com/Vanilna/balls-and-desk"
-        },
-        {
           name: "Kate Blog",
           technologies: ["Bootstrap", "HTML5"],
           description:
             "Copied blog from the original for learning reasons (learning Bootstrap).",
           web: "https://vanilna.github.io/Kate-blog/",
           code: "https://github.com/Vanilna/Kate-blog"
-        },
-        {
-          name: "Captcha",
-          technologies: ["JavaScript", "HTML5", "CSS3"],
-          description: "My attemp to make a capcha which I saw on other site.",
-          web: "https://vanilna.github.io/capcha/",
-          code: "https://github.com/Vanilna/capcha"
         }
       ]
     };
