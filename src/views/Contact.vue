@@ -3,36 +3,46 @@
     <scale-transition>
       <p class="decorText">Contact</p>
     </scale-transition>
-    <div class="info-block">
-      <div class="text">
-        <p class="margin-top-0">
-          I’m a goal-oriented person, who really wants to change career! I've
-          self-studied web development for 2 years, made 1 big project and a
-          couple of smaller ones, using JavaScript, React, CSS and HTML. I'm
-          determined, I love to study and I love to code.
-        </p>
-        <p>
-          Thanks to my previous work experience I’ve developed great
-          communicative skills both with colleagues and with clients.
-        </p>
+    <transition @appear="appear" :css="false">
+      <div class="info-block">
+        <div class="text">
+          <p class="margin-top-0">
+            I’m a goal-oriented person, who really wants to change career! I've
+            self-studied web development for 2 years, made 1 big project and a
+            couple of smaller ones, using JavaScript, React, CSS and HTML. I'm
+            determined, I love to study and I love to code.
+          </p>
+          <p>
+            Thanks to my previous work experience I’ve developed great
+            communicative skills both with colleagues and with clients.
+          </p>
+        </div>
+        <a class="link" href="https://github.com/Vanilna">
+          <inline-svg
+            class="linkImg"
+            :src="require('@/assets/contact/github.svg')"
+            alt="github"
+          />
+          PORTFOLIO
+        </a>
+        <a class="link" href="https://www.linkedin.com/in/o-vytiahlovska/">
+          <inline-svg
+            class="linkImg"
+            :src="require('@/assets/contact/linkedin.svg')"
+            alt="linkedin"
+          />
+          LINKEDIN
+        </a>
+        <a class="link" href="mailto:o.vytiahlovska@gmail.com">
+          <inline-svg
+            class="linkImg"
+            :src="require('@/assets/contact/mail.svg')"
+            aria-label="mail"
+          />
+          o.vytiahlovska@gmail.com
+        </a>
       </div>
-      <a class="link" href="https://github.com/Vanilna">
-        <img class="linkImg" src="../assets/contact/github.svg" alt="github" />
-        PORTFOLIO
-      </a>
-      <a class="link" href="https://www.linkedin.com/in/o-vytiahlovska/">
-        <img
-          class="linkImg"
-          src="../assets/contact/linkedin.svg"
-          alt="linkedin"
-        />
-        LINKEDIN
-      </a>
-      <a class="link" href="mailto:o.vytiahlovska@gmail.com">
-        <img class="linkImg" src="../assets/contact/mail.svg" alt="mail" />
-        o.vytiahlovska@gmail.com
-      </a>
-    </div>
+    </transition>
     <transition @appear="appear" :css="false">
       <picture class="portrait__wrapper">
         <source
@@ -54,10 +64,11 @@
 <script>
 import ScaleTransition from "@/utils/ScaleTransition.vue";
 import gsap from "gsap";
+import InlineSvg from "vue-inline-svg";
 
 export default {
   name: "Contact",
-  components: { ScaleTransition },
+  components: { ScaleTransition, InlineSvg },
 
   methods: {
     appear: function(el, done) {
