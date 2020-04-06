@@ -19,7 +19,14 @@
           />
         </transition-group>
       </vue-simple-scrollbar>
-      <transition @appear="appearProjects" v-else :css="false">
+      <transition
+        @appear="animateProjects('appear', $event)"
+        @enter="animateProjects('enter', $event)"
+        @leave="animateProjects('leave', $event)"
+        mode="out-in"
+        v-else
+        :css="false"
+      >
         <Project
           :isActive="true"
           :project="projects[activeId]"
@@ -27,6 +34,7 @@
           @changeProjectMobile="changeProjectMobile"
           :isLast="activeId === projects.length - 1"
           :isFirst="activeId === 0"
+          :key="projects[activeId].name"
           data-index="0"
         />
       </transition>
@@ -216,16 +224,21 @@ export default {
         onComplete: done
       });
     },
-    appearProjects: function(el, done) {
-      const delay = 0.7 + el.dataset.index * 0.05;
-      gsap.from(el, {
+    animateProjects: function(type, el, done) {
+      const delay = type === "appear" ? 0.7 + el.dataset.index * 0.05 : 0;
+      const config = {
         scaleY: 0,
         y: -60,
         delay,
         duration: 0.9,
         ease: "back.out(1)",
         onComplete: done
-      });
+      };
+      if (type === "leave") {
+        gsap.to(el, config);
+      } else {
+        gsap.from(el, config);
+      }
     }
   },
   beforeMount() {

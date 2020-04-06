@@ -158,7 +158,7 @@ export default {
   }
 }
 .arrow {
-  height: 7rem;
+  height: auto;
   width: 1.5rem;
   stroke-width: 5rem;
   stroke: #ffd500;
