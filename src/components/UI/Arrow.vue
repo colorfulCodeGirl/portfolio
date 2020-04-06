@@ -1,7 +1,6 @@
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    xml:space="preserve"
     preserveAspectRatio="none"
     version="1.1"
     shape-rendering="geometricPrecision"

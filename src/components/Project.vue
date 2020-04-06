@@ -1,11 +1,13 @@
 <template>
-  <div class="project" :class="{ active: isActive }" @click="emitChange">
-    <arrow
-      v-if="isActive"
-      class="arrow"
-      @arrowClick="emitArrowEvent('left')"
-      :isDisabled="!isLandscape && isFirst"
-    />
+  <div class="project" @click="emitChange">
+    <transition @enter="enter" @leave="leave" :css="false">
+      <arrow
+        v-if="isActive"
+        class="arrow"
+        @arrowClick="emitArrowEvent('left')"
+        :isDisabled="!isLandscape && isFirst"
+      />
+    </transition>
     <div class="content" :class="{ active: isActive }">
       <div class="heading">
         <h2 class="name">
@@ -63,6 +65,7 @@
 <script>
 import InlineSvg from "vue-inline-svg";
 import Arrow from "../components/UI/Arrow.vue";
+import gsap from "gsap";
 
 export default {
   name: "Project",
@@ -77,7 +80,12 @@ export default {
     return {
       isDescriptionWhole: this.isLandscape,
       isDescriptionShort: true,
-      pngTech: []
+      pngTech: [],
+      animationObj: {
+        opacity: 0,
+        scaleX: 0,
+        duration: 0.7
+      }
     };
   },
   components: { Arrow, InlineSvg },
@@ -118,6 +126,18 @@ export default {
     },
     showWholeDescription: function() {
       this.isDescriptionWhole = !this.isDescriptionWhole;
+    },
+    enter: function(el, done) {
+      gsap.from(el, {
+        ...this.animationObj,
+        onComplete: done
+      });
+    },
+    leave: function(el, done) {
+      gsap.to(el, {
+        ...this.animationObj,
+        onComplete: done
+      });
     }
   }
 };
@@ -139,7 +159,7 @@ export default {
 }
 .arrow {
   height: 7rem;
-  width: 2rem;
+  width: 1.5rem;
   stroke-width: 5rem;
   stroke: #ffd500;
   flex-basis: 7%;
@@ -147,21 +167,27 @@ export default {
 .arrow.right {
   transform: rotate(180deg);
 }
-.content.active {
-  flex-basis: 80%;
+.content {
+  flex-basis: 82%;
 }
+
 @media (orientation: landscape) and (min-aspect-ratio: 4/3) and (min-width: 500px) {
   .project {
     width: auto;
     margin: 0;
     margin-left: 0.5rem;
-    padding: 0.5rem 1rem 0.5rem 1.5rem;
+    padding: 0.5rem 1rem 0.5rem 0.1rem;
   }
   .arrow {
-    height: 10rem;
+    height: auto;
+  }
+  .content {
+    flex-basis: 92%;
+    margin-left: auto;
+    transition: transform 0.3s ease-out;
   }
   .content.active {
-    flex-basis: 90%;
+    transform: translateY(-0.5rem);
   }
 }
 .heading {
@@ -175,7 +201,7 @@ export default {
 .name {
   margin: 0;
   margin-bottom: 0.5rem;
-  padding-right: 0.7rem;
+  margin-right: auto;
   font-size: 1.2rem;
   font-weight: 300;
   color: #ffffff;
