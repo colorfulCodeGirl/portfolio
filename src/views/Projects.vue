@@ -7,7 +7,11 @@
         v-if="isLandscape"
         style="overflov-x: hidden"
       >
-        <transition-group tag="section" @appear="appearProjects" :css="false">
+        <transition-group
+          tag="section"
+          @appear="animateProjects('appear', $event)"
+          :css="false"
+        >
           <Project
             v-for="(project, index) in projects"
             :isActive="index === activeId"
@@ -20,7 +24,7 @@
         </transition-group>
       </vue-simple-scrollbar>
       <transition
-        @appear="animateProjects('appear', $event)"
+        @appear="animateProjects('enter', $event)"
         @enter="animateProjects('enter', $event)"
         @leave="animateProjects('leave', $event)"
         mode="out-in"
@@ -111,7 +115,7 @@ export default {
           name: "Mobile navigation",
           technologies: ["SASS", "JavaScript", "HTML5"],
           description:
-            "Mobile navigation created by the project of Aurélien Salomon for Orizon.",
+            "Project for practising SASS. Design created by the project of Aurélien Salomon for Orizon.",
           web: "https://vanilna.github.io/mobileNav/app/index.html",
           code: "https://github.com/Vanilna/mobileNav"
         },
