@@ -11,7 +11,11 @@
     <div class="content" :class="{ active: isActive }">
       <div class="heading">
         <h2 class="name">
-          <a href="#" @click="emitChange" class="headingLink">
+          <a
+            href="#"
+            @click="isLandscape ? emitChange : null"
+            class="headingLink"
+          >
             {{ project.name }}
           </a>
         </h2>
