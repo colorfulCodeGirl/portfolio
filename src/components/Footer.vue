@@ -86,7 +86,21 @@
     width: 15%;
   }
 }
-@media (orientation: landscape) and (min-aspect-ratio: 4/3) and (min-width: 500px) {
+@media (orientation: landscape) and (min-aspect-ratio: 4/3) and (min-width: 400px) {
+  .navigation {
+    width: 55%;
+  }
+  .contactLinks {
+    width: 12%;
+  }
+  .contactLink {
+    height: 8vh;
+  }
+  .logo {
+    height: 15vh;
+  }
+}
+@media (orientation: landscape) and (min-aspect-ratio: 4/3) and (min-width: 1000px) {
   .footer {
     padding-top: 5rem;
     max-width: 1200px;
@@ -99,7 +113,10 @@
     font-size: 1.2rem;
   }
   .contactLinks {
-    width: 8%;
+    width: 10%;
+  }
+  .contactLink {
+    height: 5vh;
   }
 }
 </style>

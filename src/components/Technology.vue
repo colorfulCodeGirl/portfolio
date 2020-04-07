@@ -45,10 +45,12 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 4.5rem;
+  width: auto;
+  max-width: 6rem;
   padding: 0 0.5rem 2rem 0.5rem;
 }
 .imgWrapper {
+  width: 4.5rem;
   max-width: 100%;
   height: 100%;
   display: flex;
@@ -64,8 +66,10 @@ export default {
 }
 @media (min-width: 600px) {
   .technology {
-    width: 5rem;
     padding: 0 1rem 3rem 1rem;
+  }
+  .imgWrapper {
+    width: 5rem;
   }
 }
 </style>
