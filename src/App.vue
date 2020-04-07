@@ -20,6 +20,7 @@
   font-family: inherit;
   color: #ffffff;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(255, 213, 0, 0.1);
 }
 </style>
 
