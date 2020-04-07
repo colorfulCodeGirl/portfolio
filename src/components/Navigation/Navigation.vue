@@ -51,6 +51,7 @@ export default {
   color: #ffffff;
   flex-basis: 30%;
 }
+
 .logo-img {
   max-width: 100%;
   height: 7vh;
@@ -74,18 +75,23 @@ export default {
     align-items: center;
     margin: 0 auto;
   }
-  .logo-text {
-    flex-basis: 30%;
-    font-size: 2rem;
-  }
   .logo-img {
     flex-basis: 15%;
     height: 10vh;
   }
   .navItems {
     width: auto;
-    flex-basis: 40%;
+    flex-basis: 50%;
     margin-left: auto;
+  }
+}
+@media (orientation: landscape) and (min-aspect-ratio: 4/3) and (min-width: 1000px) {
+  .logo-text {
+    font-size: 2rem;
+    flex-basis: 30%;
+  }
+  .navItems {
+    flex-basis: 40%;
   }
 }
 </style>
