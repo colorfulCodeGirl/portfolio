@@ -215,6 +215,15 @@ export default {
   width: 2rem;
   padding-right: 0.5rem;
 }
+@media (orientation: landscape) and (max-width: 1000px) {
+  .heading {
+    flex-wrap: wrap;
+  }
+  .technologie {
+    width: 1.8rem;
+    padding-right: 0.3rem;
+  }
+}
 .description {
   margin: 0;
   color: #ffffff;
