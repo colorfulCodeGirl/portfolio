@@ -78,7 +78,7 @@ export default {
             "React Testing Library",
             "GSAP"
           ],
-          description: `<p>Project was build to practice some new technologies in my stack and also to <span class="emfasized">learn testing</span>.</p>
+          description: `<p>The project was build to practice some new technologies in my stack and also to <span class="emfasized">learn to test</span>.</p>
           <p>Site fetches info about Mars rovers and photos made by them from NASA API and displays them.</p>
           <p>Some details:</p>
           <ul>
@@ -95,15 +95,15 @@ export default {
         {
           name: "Art gallery",
           technologies: ["HTML5", "CSS3", "JavaScript", "Webpack"],
-          description: `<p>An art gallery for a family of a famous Ukrainian artists.</p>
-          <p>Site writen using almoust only <span class="emfasized">HTML, CSS and JavaScript</span>.</p>
+          description: `<p>An art gallery for a family of famous Ukrainian artists.</p>
+          <p>The site was written using almost only <span class="emfasized">HTML, CSS, and JavaScript</span>.</p>
           <p>Some details:</p>
           <ul>
-          <li>I've <span class="emfasized">deepen my knowlage about fundamental technologies</span>;</li>
-          <li>I've practised <span class="emfasized">DOM manipulations</span>;</li>
-          <li>site was splited into modules and <span class="emfasized">build with Webpack</span>;</li>
-          <li>I've learned <span class="emfasized">code spliting</span> and <span class="emfasized">lazy loading</span> techniques;</li>
-          <li>the biggest challenge was <span class="emfasized">image optimization</span>, wich I've handled using Cloudinary.</li>
+          <li>I've <span class="emfasized">deepened my knowledge about fundamental technologies</span>;</li>
+          <li>I've practiced <span class="emfasized">DOM manipulations</span>;</li>
+          <li>the site was split into modules and <span class="emfasized">build with Webpack</span>;</li>
+          <li>I've learned <span class="emfasized">code splitting</span> and <span class="emfasized">lazy loading</span> techniques;</li>
+          <li>the biggest challenge was <span class="emfasized">image optimization</span>, which I've handled using Cloudinary.</li>
           </ul>`,
           web: "https://vytiahlovski.netlify.com/",
           code: "https://github.com/Vanilna/Vytiahlovski"
