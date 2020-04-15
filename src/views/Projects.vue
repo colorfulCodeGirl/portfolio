@@ -1,17 +1,15 @@
 <template>
   <main class="content">
-    <scale-transition><p class="decorText">Projects</p></scale-transition>
+    <scale-transition>
+      <p class="decorText">Projects</p>
+    </scale-transition>
     <div class="projectsContainer">
       <vue-simple-scrollbar
         :scrollbarColor="scrollBarColor"
         v-if="isLandscape"
         style="overflov-x: hidden"
       >
-        <transition-group
-          tag="section"
-          @appear="animateProjects('appear', $event)"
-          :css="false"
-        >
+        <transition-group tag="section" @appear="animateProjects('appear', $event)" :css="false">
           <Project
             v-for="(project, index) in projects"
             :isActive="index === activeId"
@@ -43,22 +41,13 @@
         />
       </transition>
     </div>
-    <transition
-      @appear="appearCover"
-      @leave="leaveCover"
-      v-if="isCoverShown"
-      :css="false"
-    >
+    <transition @appear="appearCover" @leave="leaveCover" v-if="isCoverShown" :css="false">
       <div class="iframe__cover">
-        <inline-svg
-          class="iframe__cover-logo"
-          :src="require('@/assets/logo.svg')"
-        ></inline-svg>
+        <inline-svg class="iframe__cover-logo" :src="require('@/assets/logo.svg')"></inline-svg>
       </div>
     </transition>
     <transition @enter="enterIframe" :css="false" v-show="!isCoverShown">
-      <iframe class="iframe" :src="projects[activeId].web" ref="iframe">
-      </iframe>
+      <iframe class="iframe" :src="projects[activeId].web" ref="iframe"></iframe>
     </transition>
   </main>
 </template>
@@ -80,10 +69,42 @@ export default {
       isCoverShown: true,
       projects: [
         {
+          name: "Mars Rovers",
+          technologies: [
+            "React",
+            "Styled Components",
+            "Storybook",
+            "Jest",
+            "React Testing Library",
+            "GSAP"
+          ],
+          description: `<p>Project was build to practice some new technologies in my stack and also to <span class="emfasized">learn testing</span>.</p>
+          <p>Site fetches info about Mars rovers and photos made by them from NASA API and displays them.</p>
+          <p>Some details:</p>
+          <ul>
+          <li>using <span class="emfasized">atomic design</span> patter and <span class="emfasized">Storybook</span>;</li>
+          <li>styling components with <span class="emfasized">Styled Components</span>;</li>
+          <li>working with <span class="emfasized">REST API</span>;</li>
+          <li>unit testing using <span class="emfasized">Jest</span> and <span class="emfasized">React testing library</span>;</li>
+          <li>animating with <span class="emfasized">GSAP</span>;</li>
+          <li>handle image <span class="emfasized">lazy loading</span> and adding content on scroll.</li>
+          </ul>`,
+          web: "https://rovers.netlify.com",
+          code: "https://github.com/Vanilna/mars"
+        },
+        {
           name: "Art gallery",
           technologies: ["HTML5", "CSS3", "JavaScript", "Webpack"],
-          description:
-            "An art gallery for a family of a famous Ukrainian artists. Such technologi stack was choosen to deepen my knowlage about fundamental technologies.",
+          description: `<p>An art gallery for a family of a famous Ukrainian artists.</p>
+          <p>Site writen using almoust only <span class="emfasized">HTML, CSS and JavaScript</span>.</p>
+          <p>Some details:</p>
+          <ul>
+          <li>I've <span class="emfasized">deepen my knowlage about fundamental technologies</span>;</li>
+          <li>I've practised <span class="emfasized">DOM manipulations</span>;</li>
+          <li>site was splited into modules and <span class="emfasized">build with Webpack</span>;</li>
+          <li>I've learned <span class="emfasized">code spliting</span> and <span class="emfasized">lazy loading</span> techniques;</li>
+          <li>the biggest challenge was <span class="emfasized">image optimization</span>, wich I've handled using Cloudinary.</li>
+          </ul>`,
           web: "https://vytiahlovski.netlify.com/",
           code: "https://github.com/Vanilna/Vytiahlovski"
         },
@@ -91,7 +112,7 @@ export default {
           name: "Quiz",
           technologies: ["React", "Redux", "CSS3"],
           description:
-            "Little quiz game to practice React, Redux and working with REST API.",
+            "<p>Little quiz game to practice React, Redux and working with REST API.</p>",
           web: "https://quiz-vanilna.netlify.com/",
           code: "https://github.com/Vanilna/quiz"
         },
@@ -99,7 +120,7 @@ export default {
           name: "Check-in form",
           technologies: ["HTML5", "Bootstrap", "JavaScript"],
           description:
-            "A check-in form for hotel guest. Made for practising Semantik HTML and Bootstrap.",
+            "<p>A check-in form for hotel guest.</p><p>Made for practising Semantik HTML and Bootstrap.</p>",
           web: "https://hotel-check-in.netlify.com/",
           code: "https://github.com/Vanilna/online-check-in-form"
         },
@@ -107,7 +128,7 @@ export default {
           name: "Advanced React form",
           technologies: ["React", "CSS3"],
           description:
-            "An advanced form made for practising form validation in React.",
+            "<p>An advanced form made for practising form validation in React.</p>",
           web: "https://vanilna-react-form.netlify.com",
           code: "https://github.com/Vanilna/react-form"
         },
@@ -115,7 +136,7 @@ export default {
           name: "Mobile navigation",
           technologies: ["SASS", "JavaScript", "HTML5"],
           description:
-            "Project for practising SASS. Design created by the project of Aurélien Salomon for Orizon.",
+            "<p>Project for practising SASS. Design created by the project of Aurélien Salomon for Orizon.</p>",
           web: "https://vanilna.github.io/mobileNav/app/index.html",
           code: "https://github.com/Vanilna/mobileNav"
         },
@@ -123,14 +144,15 @@ export default {
           name: "Template from Dribble",
           technologies: ["Bootstrap", "HTML5"],
           description:
-            "Copied design from dribble template to practise Bootstrap.",
+            "<p>Copied design from dribble template to practise Bootstrap.</p>",
           web: "https://vanilna.github.io/template-bootstrap/build/index.html",
           code: "https://github.com/Vanilna/template-bootstrap"
         },
         {
           name: "Memory Game",
           technologies: ["React", "CSS3"],
-          description: "Simple game to practice React and CSS animations.",
+          description:
+            "<p>Simple game to practice React and CSS animations.</p>",
           web: "https://memory-game-vanilna.netlify.com/",
           code: "https://github.com/Vanilna/memory-game"
         },
@@ -138,7 +160,7 @@ export default {
           name: "Kate Blog",
           technologies: ["Bootstrap", "HTML5"],
           description:
-            "Copied blog from the original for learning reasons (learning Bootstrap).",
+            "<p>Copied blog from the original for learning reasons (learning Bootstrap).</p>",
           web: "https://vanilna.github.io/Kate-blog/",
           code: "https://github.com/Vanilna/Kate-blog"
         }

@@ -4,12 +4,12 @@ import App from "./App.vue";
 import routes from "./router/routs";
 
 Vue.use(VueRouter);
-const router = new VueRouter({ routes });
+const router = new VueRouter({ mode: "history", routes });
 
 Vue.config.productionTip = false;
 
 new Vue({
   el: "#app",
   router,
-  render: h => h(App)
+  render: (h) => h(App),
 });

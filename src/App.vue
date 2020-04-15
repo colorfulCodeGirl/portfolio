@@ -22,6 +22,11 @@
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(255, 213, 0, 0.1);
 }
+
+.emfasized {
+  color: rgba(255, 213, 0, 0.75);
+  font-weight: 400;
+}
 </style>
 
 <script>

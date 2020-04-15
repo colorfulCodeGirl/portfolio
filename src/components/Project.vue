@@ -15,9 +15,7 @@
             href="#"
             @click="isLandscape ? emitChange : null"
             class="headingLink"
-          >
-            {{ project.name }}
-          </a>
+          >{{ project.name }}</a>
         </h2>
         <inline-svg
           v-for="{ src, name } in techSrces"
@@ -36,23 +34,15 @@
           class="technologie"
         />
       </div>
-      <p class="description">
-        {{
-          !isLandscape && !isDescriptionWhole
-            ? desriptionShort
-            : project.description
-        }}
-      </p>
+      <p class="description" v-html="!isDescriptionWhole ? desriptionShort : project.description"></p>
       <div class="links">
         <button
           class="link"
           type="button"
           aria-label="read all text"
-          v-if="!isLandscape && desriptionShort !== project.description"
+          v-if="desriptionShort !== project.description"
           @click="showWholeDescription"
-        >
-          {{ isDescriptionWhole ? "hide" : "more..." }}
-        </button>
+        >{{ isDescriptionWhole ? "hide" : "more..." }}</button>
         <a class="link" :href="project.web" target="_blank">web</a>
         <a class="link" :href="project.code" target="_blank">code</a>
       </div>
@@ -82,7 +72,7 @@ export default {
   },
   data: function() {
     return {
-      isDescriptionWhole: this.isLandscape,
+      isDescriptionWhole: false,
       isDescriptionShort: true,
       pngTech: [],
       animationObj: {
@@ -111,7 +101,7 @@ export default {
     },
     desriptionShort: function() {
       const description = this.project.description;
-      const endOfSentence = description.indexOf(".") + 1;
+      const endOfSentence = description.indexOf("</p>") + 4;
       return description.slice(0, endOfSentence);
     }
   },
