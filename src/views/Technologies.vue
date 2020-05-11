@@ -51,6 +51,7 @@ export default {
         "Redux",
         "Webpack",
         "Jest",
+        "React Testing Library",
         "Git",
         "Vue",
         "SASS",
@@ -60,9 +61,9 @@ export default {
         "BEM",
         "npm",
         "ESLint",
-        "Prettier"
+        "Prettier",
       ],
-      design: ["Photoshop", "Adobe XD", "CorelDraw", "inDesign"]
+      design: ["Photoshop", "Adobe XD", "CorelDraw", "inDesign"],
     };
   },
   methods: {
@@ -73,11 +74,11 @@ export default {
         y: -60,
         delay,
         duration: 1.5,
-        ease: "back.out(1)"
+        ease: "back.out(1)",
       });
       done();
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>
