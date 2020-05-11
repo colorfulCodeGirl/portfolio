@@ -85,7 +85,7 @@ export default {
           <li>using <span class="emfasized">atomic design</span> patter and <span class="emfasized">Storybook</span>;</li>
           <li>styling components with <span class="emfasized">Styled Components</span>;</li>
           <li>working with <span class="emfasized">REST API</span>;</li>
-          <li>unit testing using <span class="emfasized">Jest</span> and <span class="emfasized">React testing library</span>;</li>
+          <li>unit and integration tests with <span class="emfasized">Jest</span> and <span class="emfasized">React testing library</span>;</li>
           <li>animating with <span class="emfasized">GSAP</span>;</li>
           <li>handle image <span class="emfasized">lazy loading</span> and adding content on scroll.</li>
           </ul>`,
