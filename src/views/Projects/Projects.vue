@@ -193,6 +193,7 @@ export default {
   .projectFull {
     grid-column: 2 / 5;
     grid-row: 1 / 4;
+    align-self: start;
   }
   .decorText {
     grid-row: 1 / 4;
