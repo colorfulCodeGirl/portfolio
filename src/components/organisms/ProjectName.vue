@@ -18,22 +18,7 @@
             >{{ project.name }}</a
           >
         </h2>
-        <inline-svg
-          v-for="{ src, name } in techSrces"
-          :src="src"
-          :key="name"
-          class="technologie"
-          :aria-label="name"
-          height="2rem"
-          width="2rem"
-        />
-        <img
-          v-for="{ src, name } in pngTech"
-          :src="src"
-          :key="name"
-          :alt="name"
-          class="technologie"
-        />
+        <project-technologies :technologies="project.technologies" />
       </div>
       <p
         class="description"
@@ -63,8 +48,8 @@
   </div>
 </template>
 <script>
-import InlineSvg from "vue-inline-svg";
 import Arrow from "@/components/atoms/Arrow.vue";
+import ProjectTechnologies from "@/components/atoms/ProjectTechnologies.vue";
 import gsap from "gsap";
 
 export default {
@@ -80,7 +65,6 @@ export default {
     return {
       isDescriptionWhole: false,
       isDescriptionShort: true,
-      pngTech: [],
       animationObj: {
         opacity: 0,
         scaleX: 0,
@@ -88,23 +72,8 @@ export default {
       }
     };
   },
-  components: { Arrow, InlineSvg },
+  components: { Arrow, ProjectTechnologies },
   computed: {
-    techSrces: function() {
-      const srces = this.project.technologies.reduce((srcArray, tech) => {
-        try {
-          const src = require(`@/assets/technologies/${tech}.svg`);
-          if (src) {
-            srcArray.push({ src, name: tech });
-          }
-        } catch {
-          const src = require(`@/assets/technologies/${tech}.png`);
-          this.pngTech.push({ src, name: tech });
-        }
-        return srcArray;
-      }, []);
-      return srces;
-    },
     desriptionShort: function() {
       const description = this.project.description;
       const endOfSentence = description.indexOf("</p>") + 4;
@@ -207,17 +176,9 @@ export default {
   color: #ffffff;
   text-transform: uppercase;
 }
-.technologie {
-  width: 2rem;
-  padding-right: 0.5rem;
-}
 @media (orientation: landscape) and (max-width: 1000px) {
   .heading {
     flex-wrap: wrap;
-  }
-  .technologie {
-    width: 1.8rem;
-    padding-right: 0.3rem;
   }
 }
 .description {
