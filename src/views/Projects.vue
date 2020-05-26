@@ -10,7 +10,7 @@
         style="overflov-x: hidden"
       >
         <transition-group tag="section" @appear="animateProjects('appear', $event)" :css="false">
-          <Project
+          <ProjectName
             v-for="(project, index) in projects"
             :isActive="index === activeId"
             :project="project"
@@ -29,7 +29,7 @@
         v-else
         :css="false"
       >
-        <Project
+        <ProjectName
           :isActive="true"
           :project="projects[activeId]"
           :isLandscape="isLandscape"
@@ -55,13 +55,13 @@
 import VueSimpleScrollbar from "vue-simple-scrollbar";
 import gsap from "gsap";
 import InlineSvg from "vue-inline-svg";
-import Project from "@/components/Project.vue";
+import ProjectName from "@/components/ProjectName.vue";
 import ScaleTransition from "@/utils/ScaleTransition.vue";
 import { projects } from "../data/projects";
 
 export default {
   name: "Projects",
-  components: { VueSimpleScrollbar, Project, ScaleTransition, InlineSvg },
+  components: { VueSimpleScrollbar, ProjectName, ScaleTransition, InlineSvg },
   data: function() {
     return {
       activeId: 0,
