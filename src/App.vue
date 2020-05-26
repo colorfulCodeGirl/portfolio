@@ -16,7 +16,9 @@
   box-sizing: border-box;
 }
 
-.app > * {
+.app *,
+.app *::before,
+.app *::after {
   font-family: inherit;
   color: #ffffff;
   box-sizing: border-box;

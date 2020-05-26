@@ -48,10 +48,10 @@
 
     <transition :css="false" v-show="isCoverShown">
       <Project
-        class="iframe"
-        title="art gallery"
+        class="projectFull"
+        :title="projects[activeId].name"
+        :description="projects[activeId].description"
         img="https://res.cloudinary.com/vanilna/image/upload/v1590498710/Portfolio/projects/rovers.jpg"
-        ref="iframe"
       />
     </transition>
   </main>
@@ -153,29 +153,9 @@ export default {
     this.checkLandscape();
   },
   mounted() {
-    const context = this;
-    this.$refs.iframe.addEventListener(
-      "load",
-      function() {
-        context.toggleCover();
-      },
-      {
-        once: true
-      }
-    );
     window.addEventListener("resize", this.checkLandscape);
   },
   beforeDestroy() {
-    const context = this;
-    this.$refs.iframe.removeEventListener(
-      "load",
-      function() {
-        context.toggleCover();
-      },
-      {
-        once: true
-      }
-    );
     window.removeEventListener("resize", this.checkLandscape);
   }
 };
@@ -210,41 +190,14 @@ export default {
   margin-left: 1rem;
   justify-self: center;
 }
-.iframe,
-.iframe__cover {
+.projectFull {
   grid-column: 2 / -1;
   grid-row: 2 / 4;
-  border: 1px solid #ffffff;
-  width: 90%;
-  height: 57vh;
-  margin: 0 auto;
-}
-.iframe__cover {
-  background-color: #141618;
-  z-index: 3;
-  display: grid;
-}
-.iframe__cover-logo {
-  width: 60%;
-  height: 60%;
-  justify-self: center;
-  align-self: center;
-}
-@media (min-width: 700px) {
-  .iframe,
-  .iframe__cover {
-    max-width: 60vw;
-  }
 }
 @media (orientation: landscape) and (min-aspect-ratio: 4/3) and (min-width: 500px) {
-  .iframe,
-  .iframe__cover {
-    height: 60vh;
+  .projectFull {
     grid-column: 2 / 5;
     grid-row: 1 / 4;
-    width: 100%;
-    max-width: auto;
-    margin: 0;
   }
   .decorText {
     grid-row: 1 / 4;
