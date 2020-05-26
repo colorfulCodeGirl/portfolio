@@ -20,10 +20,7 @@
         </h2>
         <project-technologies :technologies="project.technologies" />
       </div>
-      <p
-        class="description"
-        v-html="!isDescriptionWhole ? desriptionShort : project.description"
-      ></p>
+      <p class="description" v-html="desriptionShort"></p>
       <div class="links">
         <!-- <button
           class="link"
@@ -63,7 +60,6 @@ export default {
   },
   data: function() {
     return {
-      isDescriptionWhole: false,
       isDescriptionShort: true,
       animationObj: {
         opacity: 0,
@@ -92,9 +88,6 @@ export default {
         return;
       }
       this.$emit("changeProjectMobile", direction);
-    },
-    showWholeDescription: function() {
-      this.isDescriptionWhole = !this.isDescriptionWhole;
     },
     enter: function(el, done) {
       gsap.from(el, {
