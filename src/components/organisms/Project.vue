@@ -1,9 +1,11 @@
 <template>
   <section class="projectWrapper">
     <img :src="project.img" :alt="project.name" class="prevue" />
-    <article class="contentWrapper">
+    <div class="lead">
       <h2 class="title">{{ project.name }}</h2>
       <project-technologies :technologies="project.technologies" />
+    </div>
+    <article class="content">
       <div v-html="project.description"></div>
       <p>buttons</p>
     </article>
@@ -37,22 +39,35 @@ export default {
   border-radius: 1rem;
   background-color: transparent;
   margin-top: 3rem;
-  margin-right: 3rem;
-  width: calc(100% - 3rem);
-  padding: 2rem;
+  margin-right: 5rem;
+  width: calc(100% - 5rem);
+  padding: 1.5rem;
   display: grid;
+  grid-template-columns: 2fr 5fr;
 }
-
 .prevue {
-  grid-area: 1/ -1 / 1 / -1;
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
   justify-self: end;
-  margin: -5rem -5rem 0 0;
-  width: 80%;
+  margin: -4.5rem -4.5rem 0 0;
   border-radius: 1rem;
-  box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.03);
+  width: 100%;
+  box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.05);
 }
-
-.contentWrapper {
-  grid-area: 1 / -1 / 1 / -1;
+.lead {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  margin-right: -4rem;
+}
+.content {
+  grid-column: 1 / -1;
+  margin-top: -2rem;
+}
+.title {
+  margin-top: 0;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #ffffff;
+  text-transform: uppercase;
 }
 </style>

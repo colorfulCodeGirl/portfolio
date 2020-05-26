@@ -23,7 +23,7 @@ export const projects = [
     web: "https://rovers.netlify.com",
     code: "https://github.com/Vanilna/mars",
     img:
-      "https://res.cloudinary.com/vanilna/image/upload/w_auto/f_auto/q_auto/v1590498710/Portfolio/projects/rovers"
+      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590498710/Portfolio/projects/rovers"
   },
   {
     name: "Art gallery",
