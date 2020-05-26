@@ -15,7 +15,8 @@
             href="#"
             @click="isLandscape ? emitChange : null"
             class="headingLink"
-          >{{ project.name }}</a>
+            >{{ project.name }}</a
+          >
         </h2>
         <inline-svg
           v-for="{ src, name } in techSrces"
@@ -34,7 +35,10 @@
           class="technologie"
         />
       </div>
-      <p class="description" v-html="!isDescriptionWhole ? desriptionShort : project.description"></p>
+      <p
+        class="description"
+        v-html="!isDescriptionWhole ? desriptionShort : project.description"
+      ></p>
       <div class="links">
         <button
           class="link"
@@ -42,7 +46,9 @@
           aria-label="read all text"
           v-if="desriptionShort !== project.description"
           @click="showWholeDescription"
-        >{{ isDescriptionWhole ? "hide" : "more..." }}</button>
+        >
+          {{ isDescriptionWhole ? "hide" : "more..." }}
+        </button>
         <a class="link" :href="project.web" target="_blank">web</a>
         <a class="link" :href="project.code" target="_blank">code</a>
       </div>

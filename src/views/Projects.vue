@@ -9,7 +9,11 @@
         v-if="isLandscape"
         style="overflov-x: hidden"
       >
-        <transition-group tag="section" @appear="animateProjects('appear', $event)" :css="false">
+        <transition-group
+          tag="section"
+          @appear="animateProjects('appear', $event)"
+          :css="false"
+        >
           <ProjectName
             v-for="(project, index) in projects"
             :isActive="index === activeId"
@@ -41,27 +45,33 @@
         />
       </transition>
     </div>
-    <transition @appear="appearCover" @leave="leaveCover" v-if="isCoverShown" :css="false">
-      <div class="iframe__cover">
-        <inline-svg class="iframe__cover-logo" :src="require('@/assets/logo.svg')"></inline-svg>
-      </div>
-    </transition>
-    <transition @enter="enterIframe" :css="false" v-show="!isCoverShown">
-      <iframe class="iframe" :src="projects[activeId].web" ref="iframe"></iframe>
+
+    <transition :css="false" v-show="isCoverShown">
+      <Project
+        class="iframe"
+        title="art gallery"
+        img="https://res.cloudinary.com/vanilna/image/upload/v1590498710/Portfolio/projects/rovers.jpg"
+        ref="iframe"
+      />
     </transition>
   </main>
 </template>
 <script>
 import VueSimpleScrollbar from "vue-simple-scrollbar";
 import gsap from "gsap";
-import InlineSvg from "vue-inline-svg";
 import ProjectName from "@/components/ProjectName.vue";
+import Project from "@/components/Project.vue";
 import ScaleTransition from "@/utils/ScaleTransition.vue";
 import { projects } from "../data/projects";
 
 export default {
   name: "Projects",
-  components: { VueSimpleScrollbar, ProjectName, ScaleTransition, InlineSvg },
+  components: {
+    VueSimpleScrollbar,
+    ProjectName,
+    Project,
+    ScaleTransition
+  },
   data: function() {
     return {
       activeId: 0,
@@ -121,23 +131,6 @@ export default {
           },
           "start"
         );
-    },
-    appearCover: function(el, done) {
-      gsap.from(el, {
-        scale: 1.1,
-        opacity: 0,
-        duration: 0.7,
-        ease: "back.out(1.4)",
-        onComplete: done
-      });
-    },
-    enterIframe: function(el, done) {
-      gsap.from(el, {
-        opacity: 0,
-        delay: 1.2,
-        duration: 15,
-        onComplete: done
-      });
     },
     animateProjects: function(type, el, done) {
       const delay = type === "appear" ? 0.7 + el.dataset.index * 0.05 : 0;
