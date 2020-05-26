@@ -1,22 +1,32 @@
 <template>
   <section class="projectWrapper">
-    <img :src="img" :alt="title" class="prevue" />
+    <img :src="project.img" :alt="project.name" class="prevue" />
     <article class="contentWrapper">
-      <h2 class="title">{{ title }}</h2>
-      <p>technologies</p>
-      <div v-html="description"></div>
+      <h2 class="title">{{ project.name }}</h2>
+      <project-technologies :technologies="project.technologies" />
+      <div v-html="project.description"></div>
       <p>buttons</p>
     </article>
   </section>
 </template>
 
 <script>
+import ProjectTechnologies from "@/components/atoms/ProjectTechnologies.vue";
+
 export default {
   name: "Project",
   props: {
-    img: String,
-    title: String,
-    description: String
+    project: {
+      name: String,
+      technologies: Array,
+      description: String,
+      web: String,
+      code: String,
+      img: String
+    }
+  },
+  components: {
+    ProjectTechnologies
   }
 };
 </script>

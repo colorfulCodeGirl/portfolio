@@ -47,12 +47,7 @@
     </div>
 
     <transition :css="false" v-show="isCoverShown">
-      <Project
-        class="projectFull"
-        :title="projects[activeId].name"
-        :description="projects[activeId].description"
-        img="https://res.cloudinary.com/vanilna/image/upload/v1590498710/Portfolio/projects/rovers.jpg"
-      />
+      <Project class="projectFull" :project="projects[activeId]" />
     </transition>
   </main>
 </template>

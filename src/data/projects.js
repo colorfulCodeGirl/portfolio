@@ -21,7 +21,9 @@ export const projects = [
       <li>handle image <span class="emfasized">lazy loading</span> and adding content on scroll.</li>
       </ul>`,
     web: "https://rovers.netlify.com",
-    code: "https://github.com/Vanilna/mars"
+    code: "https://github.com/Vanilna/mars",
+    img:
+      "https://res.cloudinary.com/vanilna/image/upload/w_auto/f_auto/q_auto/v1590498710/Portfolio/projects/rovers"
   },
   {
     name: "Art gallery",
