@@ -7,13 +7,14 @@
     </div>
     <article class="content">
       <div v-html="project.description"></div>
-      <p>buttons</p>
+      <web-buttons :code="project.code" :web="project.web" />
     </article>
   </section>
 </template>
 
 <script>
 import ProjectTechnologies from "@/components/atoms/ProjectTechnologies.vue";
+import WebButtons from "@/components/atoms/WebButtons.vue";
 
 export default {
   name: "Project",
@@ -28,7 +29,8 @@ export default {
     }
   },
   components: {
-    ProjectTechnologies
+    ProjectTechnologies,
+    WebButtons
   }
 };
 </script>

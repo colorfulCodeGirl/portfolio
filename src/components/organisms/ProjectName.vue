@@ -25,7 +25,7 @@
         v-html="!isDescriptionWhole ? desriptionShort : project.description"
       ></p>
       <div class="links">
-        <button
+        <!-- <button
           class="link"
           type="button"
           aria-label="read all text"
@@ -33,9 +33,8 @@
           @click="showWholeDescription"
         >
           {{ isDescriptionWhole ? "hide" : "more..." }}
-        </button>
-        <a class="link" :href="project.web" target="_blank">web</a>
-        <a class="link" :href="project.code" target="_blank">code</a>
+        </button> -->
+        <web-buttons :code="project.code" :web="project.web" />
       </div>
     </div>
     <arrow
@@ -50,6 +49,7 @@
 <script>
 import Arrow from "@/components/atoms/Arrow.vue";
 import ProjectTechnologies from "@/components/atoms/ProjectTechnologies.vue";
+import WebButtons from "@/components/atoms/WebButtons.vue";
 import gsap from "gsap";
 
 export default {
@@ -72,7 +72,7 @@ export default {
       }
     };
   },
-  components: { Arrow, ProjectTechnologies },
+  components: { Arrow, ProjectTechnologies, WebButtons },
   computed: {
     desriptionShort: function() {
       const description = this.project.description;
@@ -184,23 +184,6 @@ export default {
 .description {
   margin: 0;
   color: #ffffff;
-}
-.links {
-  display: flex;
-  justify-content: flex-end;
-}
-.link {
-  text-decoration: none;
-  color: #000000;
-  font-weight: 600;
-  background-color: #ffd500;
-  border: none;
-  border-radius: 5px;
-  padding: 0.1rem 0.5rem;
-  margin-left: 0.5rem;
-}
-.link:focus {
-  border: 1px solid #ffffff;
 }
 .line {
   border: 0;
