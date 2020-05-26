@@ -64,7 +64,7 @@
 </template>
 <script>
 import InlineSvg from "vue-inline-svg";
-import Arrow from "../components/UI/Arrow.vue";
+import Arrow from "@/components/atoms/Arrow.vue";
 import gsap from "gsap";
 
 export default {
@@ -93,12 +93,12 @@ export default {
     techSrces: function() {
       const srces = this.project.technologies.reduce((srcArray, tech) => {
         try {
-          const src = require(`../assets/technologies/${tech}.svg`);
+          const src = require(`@/assets/technologies/${tech}.svg`);
           if (src) {
             srcArray.push({ src, name: tech });
           }
         } catch {
-          const src = require(`../assets/technologies/${tech}.png`);
+          const src = require(`@/assets/technologies/${tech}.png`);
           this.pngTech.push({ src, name: tech });
         }
         return srcArray;

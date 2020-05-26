@@ -59,10 +59,10 @@
 <script>
 import VueSimpleScrollbar from "vue-simple-scrollbar";
 import gsap from "gsap";
-import ProjectName from "@/components/ProjectName.vue";
-import Project from "@/components/Project.vue";
+import ProjectName from "@/components/organisms/ProjectName.vue";
+import Project from "@/components/organisms/Project.vue";
 import ScaleTransition from "@/utils/ScaleTransition.vue";
-import { projects } from "../data/projects";
+import { projects } from "@/data/projects";
 
 export default {
   name: "Projects",

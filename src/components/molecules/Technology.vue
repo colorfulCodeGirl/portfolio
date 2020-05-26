@@ -27,9 +27,9 @@ export default {
     src: function() {
       let src;
       try {
-        src = require(`../assets/technologies/${this.tech}.svg`);
+        src = require(`@/assets/technologies/${this.tech}.svg`);
       } catch {
-        src = require(`../assets/technologies/${this.tech}.png`);
+        src = require(`@/assets/technologies/${this.tech}.png`);
       }
       return src;
     },

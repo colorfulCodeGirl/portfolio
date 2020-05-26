@@ -8,8 +8,8 @@
   </header>
 </template>
 <script>
-import NavItem from "@/components/Navigation/NavItem.vue";
-import Logo from "@/components/UI/Logo.vue";
+import NavItem from "@/components/atoms/NavItem.vue";
+import Logo from "@/components/atoms/Logo.vue";
 
 export default {
   name: "Navigation",

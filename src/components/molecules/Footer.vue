@@ -13,14 +13,14 @@
       <a class="link" href="https://github.com/Vanilna">
         <img
           class="contactLink"
-          src="../assets/contact/github.svg"
+          src="@/assets/contact/github.svg"
           alt="github"
         />
       </a>
       <a class="link" href="https://www.linkedin.com/in/o-vytiahlovska/">
         <img
           class="contactLink"
-          src="../assets/contact/linkedin.svg"
+          src="@/assets/contact/linkedin.svg"
           alt="linkedin"
         />
       </a>
@@ -122,7 +122,7 @@
 </style>
 
 <script>
-import Logo from "@/components/UI/Logo.vue";
+import Logo from "@/components/atoms/Logo.vue";
 
 export default {
   name: "Footer",

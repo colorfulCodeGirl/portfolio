@@ -35,7 +35,7 @@
 
 <script>
 import gsap from "gsap";
-import Technology from "@/components/Technology.vue";
+import Technology from "@/components/molecules/Technology.vue";
 import ScaleTransition from "@/utils/ScaleTransition.vue";
 
 export default {

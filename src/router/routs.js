@@ -1,4 +1,4 @@
-import Projects from "../views/Projects.vue";
+import Projects from "../views/Projects/Projects.vue";
 import Technologies from "../views/Technologies.vue";
 import Contact from "../views/Contact.vue";
 
