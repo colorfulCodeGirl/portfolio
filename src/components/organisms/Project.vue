@@ -1,6 +1,8 @@
 <template>
   <section class="projectWrapper">
-    <img :src="project.img" :alt="project.name" class="prevue" />
+    <a :href="project.web" target="_blank" class="prevue">
+      <img :src="project.img" :alt="project.name" class="prevue__img" />
+    </a>
     <div class="lead">
       <h2 class="title">{{ project.name }}</h2>
       <project-technologies :technologies="project.technologies" />
@@ -37,20 +39,24 @@ export default {
 
 <style scoped>
 .projectWrapper {
-  border: 0.1rem solid #ffd500;
-  border-radius: 1rem;
+  border: 1px solid #ffd500;
+  border-radius: 0.5rem;
   background-color: transparent;
   margin: 3rem 1rem 0;
   width: calc(100% - 2rem);
   padding: 1rem;
+  box-shadow: 5px 5px 7px rgba(255, 255, 255, 0.05);
 }
 .prevue {
   position: relative;
   top: -4rem;
-  border-radius: 1rem;
   width: 100%;
   margin: 0 auto;
-  box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.05);
+}
+.prevue__img {
+  border-radius: 0.5rem;
+  width: 100%;
+  box-shadow: 5px 5px 7px rgba(255, 255, 255, 0.05);
 }
 .lead {
   margin-top: -4rem;
