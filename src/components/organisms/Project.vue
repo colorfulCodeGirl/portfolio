@@ -63,7 +63,6 @@ export default {
 }
 .content {
   grid-column: 1 / -1;
-  margin-top: -2rem;
 }
 .title {
   margin-top: 0;

@@ -39,7 +39,9 @@ export const projects = [
       <li>the biggest challenge was <span class="emfasized">image optimization</span>, which I've handled using Cloudinary.</li>
       </ul>`,
     web: "https://vytiahlovski.netlify.com/",
-    code: "https://github.com/Vanilna/Vytiahlovski"
+    code: "https://github.com/Vanilna/Vytiahlovski",
+    img:
+      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590498710/Portfolio/projects/vytiahlovski"
   },
   {
     name: "Quiz",
@@ -47,7 +49,9 @@ export const projects = [
     description:
       "<p>Little quiz game to practice React, Redux and working with REST API.</p>",
     web: "https://quiz-vanilna.netlify.com/",
-    code: "https://github.com/Vanilna/quiz"
+    code: "https://github.com/Vanilna/quiz",
+    img:
+      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590498710/Portfolio/projects/quiz"
   },
   {
     name: "Check-in form",
@@ -55,7 +59,9 @@ export const projects = [
     description:
       "<p>A check-in form for hotel guest.</p><p>Made for practising Semantik HTML and Bootstrap.</p>",
     web: "https://hotel-check-in.netlify.com/",
-    code: "https://github.com/Vanilna/online-check-in-form"
+    code: "https://github.com/Vanilna/online-check-in-form",
+    img:
+      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590498710/Portfolio/projects/check-in"
   },
   {
     name: "Advanced React form",
@@ -63,7 +69,9 @@ export const projects = [
     description:
       "<p>An advanced form made for practising form validation in React.</p>",
     web: "https://vanilna-react-form.netlify.com",
-    code: "https://github.com/Vanilna/react-form"
+    code: "https://github.com/Vanilna/react-form",
+    img:
+      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590498710/Portfolio/projects/form"
   },
   {
     name: "Mobile navigation",
@@ -71,7 +79,9 @@ export const projects = [
     description:
       "<p>Project for practising SASS. Design created by the project of Aurélien Salomon for Orizon.</p>",
     web: "https://vanilna.github.io/mobileNav/app/index.html",
-    code: "https://github.com/Vanilna/mobileNav"
+    code: "https://github.com/Vanilna/mobileNav",
+    img:
+      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590498710/Portfolio/projects/nav"
   },
   {
     name: "Template from Dribble",
@@ -79,14 +89,18 @@ export const projects = [
     description:
       "<p>Copied design from dribble template to practise Bootstrap.</p>",
     web: "https://vanilna.github.io/template-bootstrap/build/index.html",
-    code: "https://github.com/Vanilna/template-bootstrap"
+    code: "https://github.com/Vanilna/template-bootstrap",
+    img:
+      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590498710/Portfolio/projects/template"
   },
   {
     name: "Memory Game",
     technologies: ["React", "CSS3"],
     description: "<p>Simple game to practice React and CSS animations.</p>",
     web: "https://memory-game-vanilna.netlify.com/",
-    code: "https://github.com/Vanilna/memory-game"
+    code: "https://github.com/Vanilna/memory-game",
+    img:
+      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590498710/Portfolio/projects/memory"
   },
   {
     name: "Kate Blog",
@@ -94,6 +108,8 @@ export const projects = [
     description:
       "<p>Copied blog from the original for learning reasons (learning Bootstrap).</p>",
     web: "https://vanilna.github.io/Kate-blog/",
-    code: "https://github.com/Vanilna/Kate-blog"
+    code: "https://github.com/Vanilna/Kate-blog",
+    img:
+      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590498710/Portfolio/projects/kate"
   }
 ];
