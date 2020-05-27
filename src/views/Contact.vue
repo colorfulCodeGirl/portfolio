@@ -17,7 +17,7 @@
             communicative skills both with colleagues and with clients.
           </p>
         </div>
-        <a class="link" href="https://github.com/Vanilna">
+        <a class="link" target="_blank" href="https://github.com/Vanilna">
           <inline-svg
             class="linkImg"
             :src="require('@/assets/contact/github.svg')"
@@ -25,7 +25,11 @@
           />
           PORTFOLIO
         </a>
-        <a class="link" href="https://www.linkedin.com/in/o-vytiahlovska/">
+        <a
+          class="link"
+          target="_blank"
+          href="https://www.linkedin.com/in/o-vytiahlovska/"
+        >
           <inline-svg
             class="linkImg"
             :src="require('@/assets/contact/linkedin.svg')"
@@ -129,9 +133,7 @@ export default {
   align-items: center;
 }
 .linkImg {
-  max-height: 100%;
-  max-width: 100%;
-  height: 1.7rem;
+  height: 3rem;
   padding: 0.7rem 0.5rem 0.7rem 0;
 }
 @media (min-width: 600px) {
