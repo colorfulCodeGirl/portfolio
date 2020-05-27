@@ -40,35 +40,54 @@ export default {
   border: 0.1rem solid #ffd500;
   border-radius: 1rem;
   background-color: transparent;
-  margin-top: 3rem;
-  margin-right: 5rem;
-  width: calc(100% - 5rem);
-  padding: 1.5rem;
-  display: grid;
-  grid-template-columns: 2fr 5fr;
+  margin: 3rem 1rem 0;
+  width: calc(100% - 2rem);
+  padding: 1rem;
 }
 .prevue {
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
-  justify-self: end;
-  margin: -4.5rem -4.5rem 0 0;
+  position: relative;
+  top: -4rem;
   border-radius: 1rem;
   width: 100%;
+  margin: 0 auto;
   box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.05);
 }
 .lead {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-  margin-right: -4rem;
-}
-.content {
-  grid-column: 1 / -1;
+  margin-top: -4rem;
 }
 .title {
-  margin-top: 0;
   font-size: 1.5rem;
   font-weight: 300;
   color: #ffffff;
   text-transform: uppercase;
+}
+@media (orientation: landscape) and (min-width: 1000px) {
+  .projectWrapper {
+    margin: 3rem 5rem 0 0;
+    width: calc(100% - 5rem);
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+  }
+  .prevue {
+    position: static;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    justify-self: end;
+    margin: -4.5rem -4.5rem 0 0;
+    width: 100%;
+  }
+  .lead {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    margin-top: 0;
+    margin-right: -4rem;
+  }
+  .content {
+    grid-column: 1 / -1;
+  }
+  .title {
+    margin-top: 0;
+  }
 }
 </style>
