@@ -47,7 +47,7 @@ export const projects = [
     name: "Quiz",
     technologies: ["React", "Redux", "CSS3"],
     description:
-      "<p>Little quiz game to practice React, Redux and working with REST API.</p>",
+      "<p>Little quiz game to practice React, Redux, React Router and working with REST API.</p>",
     web: "https://quiz-vanilna.netlify.com/",
     code: "https://github.com/Vanilna/quiz",
     img:
@@ -56,15 +56,19 @@ export const projects = [
   {
     name: "Check-in form",
     technologies: ["HTML5", "Bootstrap", "JavaScript"],
-    description:
-      "<p>A check-in form for hotel guest.</p><p>Made for practising Semantik HTML and Bootstrap.</p>",
+    description: `<p>A check-in form for hotel guest.</p>
+      <p>Some details:</p>
+      <ul>
+      <li>client-side <span class="emfasized">semantic HTML</span>;</li>
+      <li>styling with <span class="emfasized">Bootstrap 4</span>;</li>
+      <li>client-side field validation with <span class="emfasized">vanilla JavaScript</span>.</li>`,
     web: "https://hotel-check-in.netlify.com/",
     code: "https://github.com/Vanilna/online-check-in-form",
     img:
       "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590498710/Portfolio/projects/check-in"
   },
   {
-    name: "Advanced React form",
+    name: "Event form",
     technologies: ["React", "CSS3"],
     description:
       "<p>An advanced form made for practising form validation in React.</p>",
@@ -87,7 +91,7 @@ export const projects = [
     name: "Template from Dribble",
     technologies: ["Bootstrap", "HTML5"],
     description:
-      "<p>Copied design from dribble template to practise Bootstrap.</p>",
+      "<p>Copied design from dribble template to practice Bootstrap.</p>",
     web: "https://vanilna.github.io/template-bootstrap/build/index.html",
     code: "https://github.com/Vanilna/template-bootstrap",
     img:
