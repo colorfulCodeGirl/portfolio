@@ -49,6 +49,9 @@ export default {
       }, []);
       return srces;
     }
+  },
+  beforeUpdate: function() {
+    this.pngTech = [];
   }
 };
 </script>
