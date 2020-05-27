@@ -189,4 +189,9 @@ export default {
     rgba(255, 213, 0, 0)
   );
 }
+@media (orientation: portrait) and (min-width: 700px) {
+  .arrow {
+    flex-basis: 5%;
+  }
+}
 </style>

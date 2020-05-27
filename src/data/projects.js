@@ -23,7 +23,7 @@ export const projects = [
     web: "https://rovers.netlify.com",
     code: "https://github.com/Vanilna/mars",
     img:
-      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590498710/Portfolio/projects/rovers"
+      "https://res.cloudinary.com/vanilna/image/upload//w_400/f_auto/q_auto/v1590576917/Portfolio/projects/rovers.jpg"
   },
   {
     name: "Art gallery",
@@ -41,7 +41,7 @@ export const projects = [
     web: "https://vytiahlovski.netlify.com/",
     code: "https://github.com/Vanilna/Vytiahlovski",
     img:
-      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590498710/Portfolio/projects/vytiahlovski"
+      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590576924/Portfolio/projects/vytiahlovski"
   },
   {
     name: "Quiz",
@@ -51,7 +51,7 @@ export const projects = [
     web: "https://quiz-vanilna.netlify.com/",
     code: "https://github.com/Vanilna/quiz",
     img:
-      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590498710/Portfolio/projects/quiz"
+      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590576917/Portfolio/projects/quiz"
   },
   {
     name: "Check-in form",
@@ -65,7 +65,7 @@ export const projects = [
     web: "https://hotel-check-in.netlify.com/",
     code: "https://github.com/Vanilna/online-check-in-form",
     img:
-      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590498710/Portfolio/projects/check-in"
+      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590576916/Portfolio/projects/check-in"
   },
   {
     name: "Event form",
@@ -75,7 +75,7 @@ export const projects = [
     web: "https://vanilna-react-form.netlify.com",
     code: "https://github.com/Vanilna/react-form",
     img:
-      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590498710/Portfolio/projects/form"
+      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590576915/Portfolio/projects/form"
   },
   {
     name: "Mobile navigation",
@@ -85,7 +85,7 @@ export const projects = [
     web: "https://vanilna.github.io/mobileNav/app/index.html",
     code: "https://github.com/Vanilna/mobileNav",
     img:
-      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590498710/Portfolio/projects/nav"
+      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590576915/Portfolio/projects/nav"
   },
   {
     name: "Template from Dribble",
@@ -95,7 +95,7 @@ export const projects = [
     web: "https://vanilna.github.io/template-bootstrap/build/index.html",
     code: "https://github.com/Vanilna/template-bootstrap",
     img:
-      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590498710/Portfolio/projects/template"
+      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590576917/Portfolio/projects/template"
   },
   {
     name: "Memory Game",
@@ -104,7 +104,7 @@ export const projects = [
     web: "https://memory-game-vanilna.netlify.com/",
     code: "https://github.com/Vanilna/memory-game",
     img:
-      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590498710/Portfolio/projects/memory"
+      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590576917/Portfolio/projects/memory"
   },
   {
     name: "Kate Blog",
@@ -114,6 +114,6 @@ export const projects = [
     web: "https://vanilna.github.io/Kate-blog/",
     code: "https://github.com/Vanilna/Kate-blog",
     img:
-      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590498710/Portfolio/projects/kate"
+      "https://res.cloudinary.com/vanilna/image/upload/w_400/f_auto/q_auto/v1590576917/Portfolio/projects/kate"
   }
 ];
