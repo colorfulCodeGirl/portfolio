@@ -28,7 +28,7 @@
       <transition
         @appear="animateProjects('enter', $event)"
         @enter="animateProjects('enter', $event)"
-        @leave="animateProjects('leave', $event)"
+        @before-leave="animateProjects('leave', $event)"
         mode="out-in"
         v-else
         :css="false"
@@ -46,8 +46,17 @@
       </transition>
     </div>
 
-    <transition :css="false" v-show="isCoverShown">
-      <Project class="projectFull" :project="projects[activeId]" />
+    <transition
+      @appear="enterProject"
+      @enter="enterProject"
+      @leave="leaveProject"
+      :css="false"
+    >
+      <Project
+        class="projectFull"
+        :project="projects[activeId]"
+        :key="projects[activeId].name"
+      />
     </transition>
   </main>
 </template>
@@ -72,16 +81,11 @@ export default {
       activeId: 0,
       scrollBarColor: "rgba(255, 255, 255, 0.5)",
       isLandscape: false,
-      isCoverShown: true,
       projects
     };
   },
   methods: {
     changeProject: function(id) {
-      if (!this.isCoverShown) {
-        this.toggleCover();
-        setTimeout(this.toggleCover, 100);
-      }
       this.activeId = id;
     },
     changeProjectMobile: function(direction) {
@@ -89,43 +93,12 @@ export default {
         direction === "left" ? this.activeId - 1 : this.activeId + 1;
       if (newId >= 0 && newId < this.projects.length) {
         this.activeId = newId;
-        if (!this.isCoverShown) {
-          this.toggleCover();
-          setTimeout(this.toggleCover, 200);
-        }
       }
     },
     checkLandscape: function() {
       this.isLandscape = window.matchMedia(
         "(orientation: landscape) and (min-aspect-ratio: 4/3) and (min-width: 500px)"
       ).matches;
-    },
-    toggleCover: function() {
-      this.isCoverShown = !this.isCoverShown;
-    },
-    leaveCover: function(el, done) {
-      const tl = gsap.timeline();
-      tl.addLabel("start")
-        .to(
-          el,
-          {
-            scale: 1.03,
-            delay: 0.7,
-            duration: 0.7,
-            ease: "back.out(1.4)",
-            onComplete: done
-          },
-          "start"
-        )
-        .to(
-          el,
-          {
-            opacity: 0,
-            delay: 0.7,
-            duration: 0.3
-          },
-          "start"
-        );
     },
     animateProjects: function(type, el, done) {
       const delay = type === "appear" ? 0.7 + el.dataset.index * 0.05 : 0;
@@ -142,6 +115,38 @@ export default {
       } else {
         gsap.from(el, config);
       }
+    },
+    enterProject: function(el, done) {
+      const img = el.querySelector(".prevue__img");
+      const tl = gsap.timeline({ duration: 1 });
+      tl.from(el, {
+        opacity: 0,
+        y: "-=30"
+      }).from(
+        img,
+        {
+          opacity: 0,
+          y: "-=30",
+          onComplete: done
+        },
+        "-=0.5"
+      );
+    },
+    leaveProject: function(el, done) {
+      const img = el.querySelector(".prevue__img");
+      const tl = gsap.timeline({ duration: 1 });
+      tl.to(img, {
+        opacity: 0,
+        y: "+=30"
+      }).to(
+        el,
+        {
+          opacity: 0,
+          y: "+=30",
+          onComplete: done
+        },
+        "-=0.5"
+      );
     }
   },
   beforeMount() {

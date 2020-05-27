@@ -22,15 +22,6 @@
       </div>
       <p class="description" v-html="desriptionShort"></p>
       <div class="links">
-        <!-- <button
-          class="link"
-          type="button"
-          aria-label="read all text"
-          v-if="desriptionShort !== project.description"
-          @click="showWholeDescription"
-        >
-          {{ isDescriptionWhole ? "hide" : "more..." }}
-        </button> -->
         <web-buttons :code="project.code" :web="project.web" />
       </div>
     </div>
