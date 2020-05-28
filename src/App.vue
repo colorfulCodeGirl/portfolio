@@ -5,8 +5,12 @@
       <router-view />
     </transition>
     <Footer />
+    <div class="credentials">
+      <a href="https://www.freepik.com/free-photos-vectors/background"
+        >Background by Harryarts - www.freepik.com</a
+      >
+    </div>
   </div>
-  <!-- <a href="https://www.freepik.com/free-photos-vectors/background">Background vector created by Harryarts - www.freepik.com</a> -->
 </template>
 
 <script>
@@ -51,6 +55,7 @@ export default {
   font-family: "Open Sans", sans-serif;
   min-height: 100vh;
   box-sizing: border-box;
+  position: relative;
 }
 
 @media (orientation: portrait) {
@@ -82,5 +87,17 @@ export default {
 .emfasized {
   color: rgba(255, 213, 0, 0.75);
   font-weight: 400;
+}
+
+.credentials {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0.2rem;
+  font-size: 0.9rem;
+}
+.credentials a {
+  color: #ffffff;
+  text-decoration: none;
 }
 </style>
