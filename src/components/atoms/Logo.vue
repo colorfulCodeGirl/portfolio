@@ -14,6 +14,9 @@
       viewBox="0 0 1087 649.84"
       xmlns:xlink="http://www.w3.org/1999/xlink"
       class="img"
+      ref="logo"
+      @mouseover="onMouseEnter"
+      @mouseleave="onMouseLeave"
     >
       <g id="Layer_x0020_1">
         <path
@@ -637,13 +640,34 @@
 </template>
 
 <script>
+import gsap from "gsap";
+
 export default {
-  name: "Logo"
+  name: "Logo",
+  methods: {
+    onMouseEnter: function() {
+      const { logo } = this.$refs;
+      gsap.to(logo, {
+        duration: 0.3,
+        scale: 1.1
+      });
+    },
+    onMouseLeave: function() {
+      const { logo } = this.$refs;
+      gsap.to(logo, {
+        duration: 0.3,
+        scale: 1
+      });
+    }
+  }
 };
 </script>
 <style scoped>
 .img {
   max-width: 100%;
   max-height: 100%;
+}
+.img:hover * {
+  fill: #ffd500;
 }
 </style>
