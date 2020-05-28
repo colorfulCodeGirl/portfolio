@@ -1,24 +1,24 @@
 <template>
   <router-link to="/">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      xml:space="preserve"
-      width="1087px"
-      height="650px"
-      version="1.1"
-      shape-rendering="geometricPrecision"
-      text-rendering="geometricPrecision"
-      image-rendering="optimizeQuality"
-      fill-rule="evenodd"
-      clip-rule="evenodd"
-      viewBox="0 0 1087 649.84"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
-      class="img"
-      ref="logo"
-      @mouseover="onMouseEnter"
-      @mouseleave="onMouseLeave"
-    >
-      <g id="Layer_x0020_1">
+    <transition @appear="appear" :css="false">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xml:space="preserve"
+        width="1087px"
+        height="650px"
+        version="1.1"
+        shape-rendering="geometricPrecision"
+        text-rendering="geometricPrecision"
+        image-rendering="optimizeQuality"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        viewBox="0 0 1087 649.84"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        class="img"
+        ref="logo"
+        @mouseover="onMouseEnter"
+        @mouseleave="onMouseLeave"
+      >
         <path
           fill="#707070"
           fill-rule="nonzero"
@@ -634,8 +634,8 @@
           fill-rule="nonzero"
           d="M742.58 392.63c-2.53,1.04 -4.97,1.92 -7.71,2.24 -0.65,0.07 -0.53,1.07 0.12,1.01 2.79,-0.3 5.62,-1 8.04,-2.46 0.45,-0.27 0.02,-0.98 -0.45,-0.79z"
         />
-      </g>
-    </svg>
+      </svg>
+    </transition>
   </router-link>
 </template>
 
@@ -657,6 +657,14 @@ export default {
       gsap.to(logo, {
         duration: 0.3,
         scale: 1
+      });
+    },
+    appear: function(el, done) {
+      gsap.from(el.children, {
+        autoAlpha: 0,
+        duration: 5,
+        stagger: 0.006,
+        onComplete: done
       });
     }
   }
