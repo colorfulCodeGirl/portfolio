@@ -6,6 +6,7 @@
     </transition>
     <Footer />
   </div>
+  <!-- <a href="https://www.freepik.com/free-photos-vectors/background">Background vector created by Harryarts - www.freepik.com</a> -->
 </template>
 
 <script>
@@ -41,9 +42,32 @@ export default {
 
 .app {
   background-color: #141618;
+  background-image: linear-gradient(140deg, #141618 60%, transparent 99%),
+    linear-gradient(140deg, rgba(20, 22, 24, 0.4), rgba(20, 22, 24, 0.6)),
+    url("./assets/background.svg");
+  background-size: 60%;
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
   font-family: "Open Sans", sans-serif;
   min-height: 100vh;
   box-sizing: border-box;
+}
+
+@media (orientation: portrait) {
+  .app {
+    background-size: 100%;
+    background-image: linear-gradient(120deg, #141618 70%, transparent 99%),
+      linear-gradient(140deg, rgba(20, 22, 24, 0.4), rgba(20, 22, 24, 0.6)),
+      url("./assets/background.svg");
+  }
+}
+
+@media (orientation: portrait) and (min-width: 700px) {
+  .app {
+    background-image: linear-gradient(120deg, #141618 50%, transparent 99%),
+      linear-gradient(140deg, rgba(20, 22, 24, 0.4), rgba(20, 22, 24, 0.6)),
+      url("./assets/background.svg");
+  }
 }
 
 .app *,

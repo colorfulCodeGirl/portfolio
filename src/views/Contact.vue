@@ -76,10 +76,11 @@ export default {
 
   methods: {
     appear: function(el, done) {
-      gsap.from(el, {
-        opacity: 0,
-        delay: 0.4,
-        duration: 1,
+      gsap.from(el.children, {
+        autoAlpha: 0,
+        y: "-=30",
+        duration: 0.5,
+        stagger: 0.2,
         onComplete: done
       });
     }
@@ -117,6 +118,7 @@ export default {
   border-radius: 50%;
   object-fit: cover;
   border: 0.2rem solid #ffd500;
+  box-shadow: 5px 5px 7px rgba(255, 255, 255, 0.05);
 }
 .portrait__wrapper {
   grid-row: 1 / 2;
@@ -153,6 +155,8 @@ export default {
     height: auto;
     border-radius: 0;
     border: none;
+    border-radius: 0.5rem;
+    box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.07);
   }
 }
 </style>
