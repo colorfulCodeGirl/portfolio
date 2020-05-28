@@ -100,4 +100,7 @@ export default {
   color: #ffffff;
   text-decoration: none;
 }
+a:hover {
+  color: #ffd500;
+}
 </style>
