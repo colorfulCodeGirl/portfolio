@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <Navigation />
+    <Navigation ref="nav" />
     <transition @leave="leave" mode="out-in">
       <router-view />
     </transition>
@@ -17,6 +17,7 @@
 import gsap from "gsap";
 import Navigation from "@/components/molecules/Navigation.vue";
 import Footer from "@/components/molecules/Footer.vue";
+import { scrollTo } from "@/helpers";
 
 export default {
   name: "App",
@@ -25,7 +26,8 @@ export default {
     Footer
   },
   data: () => ({
-    scrollBarColor: "rgba(255, 255, 255, 0.5)"
+    scrollBarColor: "rgba(255, 255, 255, 0.5)",
+    yScroll: 0
   }),
   methods: {
     leave: function(el, done) {
@@ -36,13 +38,45 @@ export default {
         stagger: 0.2,
         onComplete: done
       });
+    },
+    hideShowNav: function() {
+      const nav = this.$refs.nav.$el;
+      if (window.scrollY > this.yScroll) {
+        gsap.to(nav, {
+          duration: 0.2,
+          y: "-100%"
+        });
+      } else {
+        gsap.to(nav, {
+          duration: 0.2,
+          y: 0
+        });
+      }
+      this.yScroll = window.scrollY;
     }
+  },
+  mounted: function() {
+    // scroll ro section on page reload with hash in path
+    // without a brief timeout, it won't work.
+    if (this.$route.hash) {
+      setTimeout(() => {
+        scrollTo(this.$route.hash);
+      }, 1000);
+    }
+    window.addEventListener("scroll", this.hideShowNav);
+  },
+  beforeDestroy: function() {
+    window.removeEventListener("scroll", this.hideShowNav);
   }
 };
 </script>
 
 <style>
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,600,700&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
 
 .app {
   background-color: #141618;

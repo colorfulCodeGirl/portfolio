@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <logo class="logo-img" />
+    <router-link to="/" class="logo-img"><logo /></router-link>
     <router-link to="/" class="logo-text">ALEX VYTIAHLOVSKA</router-link>
     <nav class="navItems">
       <NavItem v-for="item in items" :item="item" :key="item.index" />
@@ -27,21 +27,18 @@ export default {
 </script>
 <style scoped>
 .header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background-color: #141618;
   display: flex;
   flex-direction: column;
   padding: 0.8rem;
   align-items: center;
   padding-bottom: 1rem;
-}
-@media (min-width: 600px) {
-  .header {
-    padding-bottom: 3rem;
-  }
-}
-@media (min-width: 1200) {
-  .header {
-    padding: 0.8rem 0;
-  }
+  z-index: 999;
+  transition: all 0.5s 0.3s ease-out;
 }
 .logo-text {
   flex-basis: 80%;
@@ -69,7 +66,6 @@ export default {
 }
 @media (orientation: landscape) and (min-aspect-ratio: 4/3) and (min-width: 500px) {
   .header {
-    max-width: 1200px;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;

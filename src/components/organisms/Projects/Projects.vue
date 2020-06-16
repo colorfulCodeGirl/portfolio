@@ -1,19 +1,18 @@
 <template>
-  <main class="content">
-    <scale-transition>
-      <p class="decorText">Projects</p>
-    </scale-transition>
-    <div class="projectsContainer">
+  <section class="content" id="projects" ref="content">
+    <decor-text
+      text="Projects"
+      class="decorText"
+      v-scroll="handleScroll"
+      v-if="!isMobile"
+    />
+    <div class="projectsContainer" v-scroll="handleScroll">
       <vue-simple-scrollbar
         :scrollbarColor="scrollBarColor"
         v-if="isLandscape"
         style="overflov-x: hidden"
       >
-        <transition-group
-          tag="section"
-          @appear="animateProjects('appear', $event)"
-          :css="false"
-        >
+        <section>
           <ProjectName
             v-for="(project, index) in projects"
             :isActive="index === activeId"
@@ -23,10 +22,9 @@
             :data-index="index"
             @changeProject="changeProject(index)"
           />
-        </transition-group>
+        </section>
       </vue-simple-scrollbar>
       <transition
-        @appear="animateProjects('enter', $event)"
         @enter="animateProjects('enter', $event)"
         @before-leave="animateProjects('leave', $event)"
         mode="out-in"
@@ -42,30 +40,27 @@
           :isFirst="activeId === 0"
           :key="projects[activeId].name"
           data-index="0"
+          v-scroll="handleScroll"
         />
       </transition>
     </div>
 
-    <transition
-      @appear="enterProject"
-      @enter="enterProject"
-      @leave="leaveProject"
-      :css="false"
-    >
+    <transition @enter="enterProject" @leave="leaveProject" :css="false">
       <Project
         class="projectFull"
         :project="projects[activeId]"
         :key="projects[activeId].name"
+        v-scroll="handleScroll"
       />
     </transition>
-  </main>
+  </section>
 </template>
 <script>
 import VueSimpleScrollbar from "vue-simple-scrollbar";
 import gsap from "gsap";
 import ProjectName from "@/components/organisms/ProjectName.vue";
 import Project from "@/components/organisms/Project.vue";
-import ScaleTransition from "@/utils/ScaleTransition.vue";
+import DecorText from "@/components/atoms/DecorText.vue";
 import { projects } from "@/data/projects";
 
 export default {
@@ -74,14 +69,17 @@ export default {
     VueSimpleScrollbar,
     ProjectName,
     Project,
-    ScaleTransition
+    DecorText
   },
   data: function() {
     return {
       activeId: 0,
       scrollBarColor: "rgba(255, 255, 255, 0.5)",
       isLandscape: false,
-      projects
+      isMobile: false,
+      projects,
+      animationDelay: 0.3,
+      isProjectAnimated: false
     };
   },
   methods: {
@@ -99,13 +97,14 @@ export default {
       this.isLandscape = window.matchMedia(
         "(orientation: landscape) and (min-aspect-ratio: 4/3) and (min-width: 500px)"
       ).matches;
+      this.isMobile = window.matchMedia(
+        "(max-width: 700px) and (orientation: portrait)"
+      ).matches;
     },
     animateProjects: function(type, el, done) {
-      const delay = type === "appear" ? 0.7 + el.dataset.index * 0.05 : 0;
       const config = {
         scaleY: 0,
         y: -60,
-        delay,
         duration: 0.9,
         ease: "back.out(1)",
         onComplete: done
@@ -147,6 +146,43 @@ export default {
         },
         "-=0.5"
       );
+    },
+    handleScroll: function(evn, el) {
+      let animated = false;
+      if (el.offsetTop < window.scrollY + window.innerHeight) {
+        if (el.classList[0] === "projectWrapper" && this.isProjectAnimated)
+          return;
+        gsap.set(el, {
+          autoAlpha: 0
+        });
+        gsap.fromTo(
+          el,
+          {
+            x: -20,
+            y: 50,
+            autoAlpha: 0,
+            duration: 1,
+            delay: this.animationDelay,
+            ease: "power3.out"
+          },
+          { autoAlpha: 1, x: 0, y: 0 }
+        );
+        if (el.children && el.classList[0] !== "projectsContainer") {
+          gsap.from(el.children, {
+            x: -20,
+            y: 50,
+            autoAlpha: 0,
+            duration: 1,
+            delay: this.animationDelay + 0.2,
+            stagger: 0.1,
+            ease: "power3.out"
+          });
+        }
+        animated = true;
+        this.animationDelay += 0.3;
+        if (el.classList[0] === "projectWrapper") this.isProjectAnimated = true;
+      }
+      return animated;
     }
   },
   beforeMount() {
@@ -154,6 +190,7 @@ export default {
   },
   mounted() {
     window.addEventListener("resize", this.checkLandscape);
+    gsap.set(this.$refs.content.children, { autoAlpha: 0 });
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.checkLandscape);
@@ -177,31 +214,27 @@ export default {
   width: 100%;
   display: flex;
 }
-.decorText {
-  grid-column: 1 / 2;
-  grid-row: 2 / 4;
-  text-transform: uppercase;
-  font-size: 3rem;
-  letter-spacing: 0.5rem;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  padding: 0;
-  margin: 0;
-  margin-left: 1rem;
-  justify-self: center;
-}
 .projectFull {
-  grid-column: 2 / -1;
+  grid-column: 1 / -1;
   grid-row: 2 / 4;
+  margin-bottom: 3rem;
+}
+@media (min-width: 700px) and (orientation: portrait) {
+  .decorText {
+    grid-row-start: 2;
+  }
+  .projectFull {
+    grid-column: 2 / -1;
+  }
 }
 @media (orientation: landscape) and (min-aspect-ratio: 4/3) and (min-width: 500px) {
+  .content {
+    padding-top: 7rem;
+  }
   .projectFull {
     grid-column: 2 / 5;
     grid-row: 1 / 4;
     align-self: start;
-  }
-  .decorText {
-    grid-row: 1 / 4;
   }
   .projectsContainer {
     height: 80vh;

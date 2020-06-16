@@ -1,5 +1,5 @@
 <template>
-  <router-link class="item" :to="`/${item.name}`">
+  <router-link class="item" :to="link" @click.native="scroll">
     <p class="text">{{ item.name }}</p>
     <hr class="line" />
   </router-link>
@@ -61,10 +61,27 @@
 </style>
 
 <script>
+import { scrollTo } from "@/helpers";
+
 export default {
   name: "NavItem",
   props: {
     item: Object
+  },
+  computed: {
+    link: function() {
+      return this.item.name === "projects"
+        ? `/#${this.item.name}`
+        : `/${this.item.name}`;
+    }
+  },
+  methods: {
+    scroll: function() {
+      //to scroll to section on second click when path is already '#projects'
+      if (this.item.name === "projects") {
+        scrollTo("#projects", 1);
+      }
+    }
   }
 };
 </script>

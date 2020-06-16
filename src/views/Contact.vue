@@ -1,8 +1,6 @@
 <template>
   <main class="content">
-    <scale-transition>
-      <p class="decorText">Contact</p>
-    </scale-transition>
+    <decor-text text="Contact" />
     <transition @appear="appear" :css="false">
       <div class="info-block">
         <div class="text">
@@ -66,13 +64,13 @@
 </template>
 
 <script>
-import ScaleTransition from "@/utils/ScaleTransition.vue";
 import gsap from "gsap";
 import InlineSvg from "vue-inline-svg";
+import DecorText from "@/components/atoms/DecorText.vue";
 
 export default {
   name: "Contact",
-  components: { ScaleTransition, InlineSvg },
+  components: { DecorText, InlineSvg },
 
   methods: {
     appear: function(el, done) {
@@ -94,21 +92,10 @@ export default {
   display: grid;
   grid-template-columns: 15% repeat(5, 1fr);
   grid-template-rows: auto;
-}
-.decorText {
-  grid-column: 1 / 2;
-  grid-row: 1 / 4;
-  text-transform: uppercase;
-  font-size: 3rem;
-  letter-spacing: 0.5rem;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  padding: 0;
-  margin: 0;
-  justify-self: center;
+  padding-top: 10.5rem;
 }
 .info-block {
-  grid-column: 2 / 7;
+  grid-column: 1 / 7;
   max-width: 80%;
   justify-self: center;
 }
@@ -122,7 +109,7 @@ export default {
 }
 .portrait__wrapper {
   grid-row: 1 / 2;
-  grid-column: 2 / -1;
+  grid-column: 1 / -1;
   margin: 0 auto;
 }
 .portrait__img-big {
@@ -139,6 +126,9 @@ export default {
   padding: 0.7rem 0.5rem 0.7rem 0;
 }
 @media (min-width: 600px) {
+  .content {
+    padding-top: 15rem;
+  }
   .margin-top-0 {
     margin-top: 0;
   }
@@ -157,6 +147,17 @@ export default {
     border: none;
     border-radius: 0.5rem;
     box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.07);
+  }
+}
+@media (orientation: landscape) and (min-aspect-ratio: 4/3) and (min-width: 500px) {
+  .content {
+    padding-top: 12rem;
+  }
+  .info-block {
+    grid-column: 3 / 5;
+  }
+  .portrait__wrapper {
+    grid-column: 5 / 6;
   }
 }
 </style>

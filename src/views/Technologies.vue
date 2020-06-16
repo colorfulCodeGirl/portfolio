@@ -1,6 +1,6 @@
 <template>
   <main class="content">
-    <scale-transition><p class="decorText">Technologies</p></scale-transition>
+    <decor-text text="Technologies" class="decorText" />
     <transition-group
       class="technologies"
       name="technologies"
@@ -36,11 +36,11 @@
 <script>
 import gsap from "gsap";
 import Technology from "@/components/molecules/Technology.vue";
-import ScaleTransition from "@/utils/ScaleTransition.vue";
+import DecorText from "@/components/atoms/DecorText.vue";
 
 export default {
   name: "Technologies",
-  components: { Technology, ScaleTransition },
+  components: { Technology, DecorText },
   data: () => {
     return {
       webTechnologies: [
@@ -88,42 +88,38 @@ export default {
   display: grid;
   grid-template-columns: 15% repeat(5, 1fr);
   grid-template-rows: auto;
-}
-.decorText {
-  grid-column: 1 / 2;
-  grid-row: 1 / 4;
-  text-transform: uppercase;
-  font-size: 3rem;
-  letter-spacing: 0.5rem;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  padding: 0;
-  margin: 0;
-  margin-left: 1rem;
-  margin-top: 1.5rem;
-  justify-self: center;
+  padding-top: 10.5rem;
 }
 .technologies {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  grid-column: 2 / 7;
+  grid-column: 1 / 7;
   margin: 1.5rem 1rem;
 }
 .sectionHeading {
-  grid-column: 2 / -1;
+  grid-column: 1 / -1;
   text-align: center;
   font-weight: 300;
   text-transform: uppercase;
   padding-bottom: 2rem;
 }
 @media (min-width: 600px) {
-  .decorText {
-    margin: 0;
+  .content {
+    padding-top: 15rem;
   }
   .technologies {
     grid-column: 3 / 6;
     margin: 0;
+  }
+}
+@media (orientation: landscape) and (min-aspect-ratio: 4/3) and (min-width: 500px) {
+  .content {
+    padding-top: 12rem;
+  }
+  .technologies,
+  .sectionHeading {
+    grid-column: 2 / 7;
   }
 }
 </style>

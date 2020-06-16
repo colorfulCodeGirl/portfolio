@@ -1,13 +1,9 @@
-import Projects from "../views/Projects/Projects.vue";
+import Home from "../views/Home.vue";
 import Technologies from "../views/Technologies.vue";
 import Contact from "../views/Contact.vue";
 
 const routs = [
-  {
-    path: "/",
-    redirect: "/projects"
-  },
-  { path: "/projects", component: Projects },
+  { path: "/", component: Home },
   { path: "/technologies", component: Technologies },
   { path: "/contact", component: Contact }
 ];

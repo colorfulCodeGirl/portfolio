@@ -12,7 +12,7 @@
       <div class="heading">
         <h2 class="name">
           <a
-            href="#"
+            href="#projects"
             @click="isLandscape ? emitChange : null"
             class="headingLink"
             >{{ project.name }}</a
