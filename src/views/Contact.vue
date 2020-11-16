@@ -48,13 +48,13 @@
     <transition @appear="appear" :css="false">
       <picture class="portrait__wrapper">
         <source
-          srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale/dpr_auto/f_auto/q_auto/w_400/v1605549202/Portfolio/Alex"
+          srcset="https://res.cloudinary.com/vanilna/image/upload/c_scale/dpr_auto/f_auto/q_auto/w_400/v1605551203/Portfolio/Alex"
           media="(min-width: 600px)"
           alt="Alex Vytiahlovska"
           class="portrait__img portrait__img-big"
         />
         <img
-          src="https://res.cloudinary.com/vanilna/image/upload/c_crop,g_face,f_auto,q_auto,w_250,h_250,r_max/v1605549066/Portfolio/Alex_sq"
+          src="https://res.cloudinary.com/vanilna/image/upload/f_auto,q_auto,w_250,h_250,r_max/v1605551200/Portfolio/Alex_sq"
           alt="Alex Vytiahlovska"
           class="portrait__img"
         />
