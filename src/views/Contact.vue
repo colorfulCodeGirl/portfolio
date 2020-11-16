@@ -5,14 +5,14 @@
       <div class="info-block">
         <div class="text">
           <p class="margin-top-0">
-            I’m a goal-oriented person, who really wants to change career! I've
-            self-studied web development for 2 years, made 1 big project and a
-            couple of smaller ones, using JavaScript, React, CSS and HTML. I'm
-            determined, I love to study and I love to code.
+            Couple of years ago Web Development had become my true love. I've
+            started a self-directed study, made 3 personal projects, and got a
+            job as Middle Frontend Engineer at Anixe.
           </p>
           <p>
-            Thanks to my previous work experience I’ve developed great
-            communicative skills both with colleagues and with clients.
+            I love the JAMstack approach and my main passions are React, Vue,
+            React Native, and of course vanilla JavaScript. I'm also heavy into
+            animations and the overall perfect look of projects.
           </p>
         </div>
         <a class="link" target="_blank" href="https://github.com/Vanilna">
