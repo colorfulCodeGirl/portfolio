@@ -135,7 +135,7 @@ export default {
     margin-right: 0.5rem;
   }
   .content {
-    flex-basis: 87%;
+    flex-basis: 85%;
     margin-left: auto;
     margin-right: 1rem;
     transition: transform 0.3s ease-out;
