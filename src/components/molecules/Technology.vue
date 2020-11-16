@@ -59,6 +59,7 @@ export default {
 .techImg {
   max-width: 100%;
   max-height: 100%;
+  filter: grayscale(0.2);
 }
 .techText {
   margin: 0;

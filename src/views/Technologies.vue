@@ -123,6 +123,7 @@ export default {
   .technologies,
   .sectionHeading {
     grid-column: 2 / 7;
+    margin: 0 5rem;
   }
 }
 </style>
