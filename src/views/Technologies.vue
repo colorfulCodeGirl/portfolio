@@ -60,6 +60,7 @@ export default {
         "SASS",
         "Styled Components",
         "Storybook",
+        "BEM",
         "Bootstrap",
         "npm",
         "ESLint",
