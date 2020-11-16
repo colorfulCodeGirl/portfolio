@@ -111,7 +111,8 @@ export default {
   .content {
     padding-top: 15rem;
   }
-  .technologies {
+  .technologies,
+  .sectionHeading {
     grid-column: 3 / 6;
     margin: 0;
   }
